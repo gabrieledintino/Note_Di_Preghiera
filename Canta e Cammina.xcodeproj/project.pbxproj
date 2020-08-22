@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		460C404424EF23BD003B7760 /* Canta_e_CamminaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C404324EF23BD003B7760 /* Canta_e_CamminaApp.swift */; };
+		460C404624EF23BD003B7760 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C404524EF23BD003B7760 /* ContentView.swift */; };
+		460C404824EF23BE003B7760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 460C404724EF23BE003B7760 /* Assets.xcassets */; };
+		460C404B24EF23BE003B7760 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 460C404A24EF23BE003B7760 /* Preview Assets.xcassets */; };
+		460C404D24EF23BE003B7760 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C404C24EF23BE003B7760 /* Persistence.swift */; };
+		460C405024EF23BE003B7760 /* Canta_e_Cammina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 460C404E24EF23BE003B7760 /* Canta_e_Cammina.xcdatamodeld */; };
+		465E633F24EFE83400AF3933 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E633E24EFE83400AF3933 /* Song.swift */; };
+		465E634124EFE90000AF3933 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E634024EFE90000AF3933 /* Bundle-Decodable.swift */; };
+		465E634324F00AEA00AF3933 /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = 465E634224F00AEA00AF3933 /* songs.json */; };
+		465E634524F00BC700AF3933 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E634424F00BC700AF3933 /* HomeView.swift */; };
+		465E634724F026D900AF3933 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E634624F026D900AF3933 /* WelcomeView.swift */; };
+		465E634924F0273300AF3933 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E634824F0273300AF3933 /* Favorites.swift */; };
+		465E634C24F0302800AF3933 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E634B24F0302800AF3933 /* SongView.swift */; };
+		46C222EC24F15C660026EB81 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222EB24F15C660026EB81 /* NoteView.swift */; };
+		46C222EE24F162F30026EB81 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222ED24F162F30026EB81 /* NotesView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		460C404024EF23BD003B7760 /* Canta e Cammina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canta e Cammina.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		460C404324EF23BD003B7760 /* Canta_e_CamminaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canta_e_CamminaApp.swift; sourceTree = "<group>"; };
+		460C404524EF23BD003B7760 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		460C404724EF23BE003B7760 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		460C404A24EF23BE003B7760 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		460C404C24EF23BE003B7760 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		460C404F24EF23BE003B7760 /* Canta_e_Cammina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Canta_e_Cammina.xcdatamodel; sourceTree = "<group>"; };
+		460C405124EF23BE003B7760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		465E633E24EFE83400AF3933 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		465E634024EFE90000AF3933 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		465E634224F00AEA00AF3933 /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs.json; sourceTree = "<group>"; };
+		465E634424F00BC700AF3933 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		465E634624F026D900AF3933 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		465E634824F0273300AF3933 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		465E634B24F0302800AF3933 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
+		46C222EB24F15C660026EB81 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		46C222ED24F162F30026EB81 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		460C403D24EF23BD003B7760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		460C403724EF23BD003B7760 = {
+			isa = PBXGroup;
+			children = (
+				460C404224EF23BD003B7760 /* Canta e Cammina */,
+				460C404124EF23BD003B7760 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		460C404124EF23BD003B7760 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				460C404024EF23BD003B7760 /* Canta e Cammina.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		460C404224EF23BD003B7760 /* Canta e Cammina */ = {
+			isa = PBXGroup;
+			children = (
+				465E634A24F02FC900AF3933 /* View */,
+				465E634024EFE90000AF3933 /* Bundle-Decodable.swift */,
+				465E633D24EFE81800AF3933 /* Model */,
+				460C404324EF23BD003B7760 /* Canta_e_CamminaApp.swift */,
+				460C404724EF23BE003B7760 /* Assets.xcassets */,
+				460C404C24EF23BE003B7760 /* Persistence.swift */,
+				460C405124EF23BE003B7760 /* Info.plist */,
+				460C404924EF23BE003B7760 /* Preview Content */,
+			);
+			path = "Canta e Cammina";
+			sourceTree = "<group>";
+		};
+		460C404924EF23BE003B7760 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				460C404A24EF23BE003B7760 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		465E633D24EFE81800AF3933 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				465E634824F0273300AF3933 /* Favorites.swift */,
+				465E633E24EFE83400AF3933 /* Song.swift */,
+				465E634224F00AEA00AF3933 /* songs.json */,
+				460C404E24EF23BE003B7760 /* Canta_e_Cammina.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		465E634A24F02FC900AF3933 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				460C404524EF23BD003B7760 /* ContentView.swift */,
+				465E634424F00BC700AF3933 /* HomeView.swift */,
+				465E634624F026D900AF3933 /* WelcomeView.swift */,
+				465E634B24F0302800AF3933 /* SongView.swift */,
+				46C222ED24F162F30026EB81 /* NotesView.swift */,
+				46C222EB24F15C660026EB81 /* NoteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		460C403F24EF23BD003B7760 /* Canta e Cammina */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 460C405424EF23BE003B7760 /* Build configuration list for PBXNativeTarget "Canta e Cammina" */;
+			buildPhases = (
+				460C403C24EF23BD003B7760 /* Sources */,
+				460C403D24EF23BD003B7760 /* Frameworks */,
+				460C403E24EF23BD003B7760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Canta e Cammina";
+			productName = "Canta e Cammina";
+			productReference = 460C404024EF23BD003B7760 /* Canta e Cammina.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		460C403824EF23BD003B7760 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					460C403F24EF23BD003B7760 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = 460C403B24EF23BD003B7760 /* Build configuration list for PBXProject "Canta e Cammina" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 460C403724EF23BD003B7760;
+			productRefGroup = 460C404124EF23BD003B7760 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				460C403F24EF23BD003B7760 /* Canta e Cammina */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		460C403E24EF23BD003B7760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				465E634324F00AEA00AF3933 /* songs.json in Resources */,
+				460C404B24EF23BE003B7760 /* Preview Assets.xcassets in Resources */,
+				460C404824EF23BE003B7760 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		460C403C24EF23BD003B7760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				465E634924F0273300AF3933 /* Favorites.swift in Sources */,
+				460C405024EF23BE003B7760 /* Canta_e_Cammina.xcdatamodeld in Sources */,
+				46C222EE24F162F30026EB81 /* NotesView.swift in Sources */,
+				465E634524F00BC700AF3933 /* HomeView.swift in Sources */,
+				460C404D24EF23BE003B7760 /* Persistence.swift in Sources */,
+				46C222EC24F15C660026EB81 /* NoteView.swift in Sources */,
+				465E634724F026D900AF3933 /* WelcomeView.swift in Sources */,
+				460C404624EF23BD003B7760 /* ContentView.swift in Sources */,
+				460C404424EF23BD003B7760 /* Canta_e_CamminaApp.swift in Sources */,
+				465E634C24F0302800AF3933 /* SongView.swift in Sources */,
+				465E633F24EFE83400AF3933 /* Song.swift in Sources */,
+				465E634124EFE90000AF3933 /* Bundle-Decodable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		460C405224EF23BE003B7760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		460C405324EF23BE003B7760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		460C405524EF23BE003B7760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Canta e Cammina/Preview Content\"";
+				DEVELOPMENT_TEAM = NQ7H6329U9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Canta e Cammina/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gabbo.Canta-e-Cammina";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		460C405624EF23BE003B7760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Canta e Cammina/Preview Content\"";
+				DEVELOPMENT_TEAM = NQ7H6329U9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Canta e Cammina/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gabbo.Canta-e-Cammina";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		460C403B24EF23BD003B7760 /* Build configuration list for PBXProject "Canta e Cammina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				460C405224EF23BE003B7760 /* Debug */,
+				460C405324EF23BE003B7760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		460C405424EF23BE003B7760 /* Build configuration list for PBXNativeTarget "Canta e Cammina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				460C405524EF23BE003B7760 /* Debug */,
+				460C405624EF23BE003B7760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		460C404E24EF23BE003B7760 /* Canta_e_Cammina.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				460C404F24EF23BE003B7760 /* Canta_e_Cammina.xcdatamodel */,
+			);
+			currentVersion = 460C404F24EF23BE003B7760 /* Canta_e_Cammina.xcdatamodel */;
+			path = Canta_e_Cammina.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 460C403824EF23BD003B7760 /* Project object */;
+}
