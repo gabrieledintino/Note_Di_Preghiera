@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Song: Codable, Identifiable {
-	let id = UUID()
+struct Song: Codable, Hashable {
+//	let id = UUID()
 	let title: String
-	let intro: String
+	let intro: String?
 	let notesAndLyrics: [String]
 //	let lyrics: String
 //	let notes: String

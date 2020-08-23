@@ -13,7 +13,7 @@ struct HomeView: View {
 	
     var body: some View {
 		NavigationView {
-			List(songs) { song in
+			List(songs, id: \.self) { song in
 				NavigationLink(destination: SongView(song: song)) {
 					VStack(alignment: .leading) {
 						Text(song.title)
@@ -32,8 +32,6 @@ struct HomeView: View {
 			
 			WelcomeView()
 		}
-//		.navigationViewStyle(StackNavigationViewStyle())
-
     }
 }
 

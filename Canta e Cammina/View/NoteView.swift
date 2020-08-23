@@ -13,12 +13,16 @@ struct NoteView: View {
 	
     var body: some View {
 		ZStack {
-			Button(note) {
-				self.isShowingNote = true
+			if !note.hasPrefix(" ") {
+				Button(note) {
+					self.isShowingNote = true
+				}
+			} else {
+				Text(note)
 			}
 		}
 		.sheet(isPresented: $isShowingNote) {
-			// Inserire immagine della nota
+			DetailNoteView(note: note)
 		}
     }
 }
