@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct Canta_e_CamminaApp: App {
     let persistenceController = PersistenceController.shared
+	@ObservedObject var favorites = Favorites()
 
     var body: some Scene {
         WindowGroup {
 			HomeView()
+				.environmentObject(favorites)
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

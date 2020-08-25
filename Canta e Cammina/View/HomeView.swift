@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
 	let songs: [Song] = Bundle.main.decode("songs.json")
-	@ObservedObject var favorites = Favorites()
+	@EnvironmentObject var favorites: Favorites
 	
     var body: some View {
 		NavigationView {
@@ -18,7 +18,7 @@ struct HomeView: View {
 					VStack(alignment: .leading) {
 						Text(song.title)
 							.font(.headline)
-					}
+					}.layoutPriority(1)
 					
 					if self.favorites.contains(song) {
 						Spacer()
@@ -32,6 +32,7 @@ struct HomeView: View {
 			
 			WelcomeView()
 		}
+		.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

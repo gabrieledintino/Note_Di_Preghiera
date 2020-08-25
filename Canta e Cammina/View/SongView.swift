@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SongView: View {
+	@EnvironmentObject var favorites: Favorites
+	@State private var showingSettings = false
+	
 	var song: Song
 	
 	
@@ -26,7 +29,6 @@ struct SongView: View {
 								}
 								ForEach(0..<song.notes.count) { index in
 									NotesView(notes: song.obtainNotes(string: song.notes[index]))
-//									Text(song.notes[index])
 									Text(song.lyrics[index])
 								}
 							}
@@ -38,7 +40,29 @@ struct SongView: View {
 //			}
 		.navigationTitle(song.title)
 		.navigationBarTitleDisplayMode(.inline)
+		.navigationBarItems(trailing:
+								HStack(spacing: 10) {
+									Button {
+										if self.favorites.contains(song) {
+											self.favorites.remove(song)
+										} else {
+											self.favorites.add(song)
+										}
+										} label: {
+											self.favorites.contains(song) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+										}
+										.foregroundColor(.red)
+									
+									Button {
+										self.showingSettings = true
+									} label: {
+										Image(systemName: "gear")
+									}
+								})
 		.navigationViewStyle(StackNavigationViewStyle())
+		.sheet(isPresented: $showingSettings) {
+			// menù dei settaggi
+		}
     }
 }
 

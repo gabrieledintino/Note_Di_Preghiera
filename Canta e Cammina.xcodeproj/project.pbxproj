@@ -77,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				465E634A24F02FC900AF3933 /* View */,
-				465E634024EFE90000AF3933 /* Bundle-Decodable.swift */,
 				465E633D24EFE81800AF3933 /* Model */,
 				460C404324EF23BD003B7760 /* Canta_e_CamminaApp.swift */,
 				460C404724EF23BE003B7760 /* Assets.xcassets */,
@@ -99,6 +98,7 @@
 		465E633D24EFE81800AF3933 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				465E634024EFE90000AF3933 /* Bundle-Decodable.swift */,
 				465E634824F0273300AF3933 /* Favorites.swift */,
 				465E633E24EFE83400AF3933 /* Song.swift */,
 				465E634224F00AEA00AF3933 /* songs.json */,
