@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Note {
+struct Chord {
 	let note: String
 	let image: String
 	let description: String
