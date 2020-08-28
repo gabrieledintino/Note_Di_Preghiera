@@ -8,24 +8,22 @@
 import Foundation
 
 struct Song: Codable, Hashable {
-//	let id = UUID()
 	let title: String
 	let intro: String?
 	let notesAndLyrics: [String]
-//	let lyrics: String
-//	let notes: String
+	let categories: [String]
 	let otherNotes: String
 	
 	
 	static let allSongs: [Song] = Bundle.main.decode("songs.json")
 	static let example = allSongs[0]
 	
-	var notes: [String] {
+	var notes: [[String]] {
 		var temp: [String] = []
 		_ = stride(from: 0, through: notesAndLyrics.count - 1, by: 2).map { index in
 			temp.append(notesAndLyrics[index])
 		}
-		return temp
+		return temp.map { obtainNotes(string: $0) }
 	}
 	
 	var lyrics: [String] {

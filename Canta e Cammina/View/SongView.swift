@@ -25,11 +25,12 @@ struct SongView: View {
 									.padding(5)
 								
 								if song.intro != nil {
-									Text(song.intro!)
+									NotesView(notes: song.obtainNotes(string: song.intro!))
 								}
 								ForEach(0..<song.notes.count) { index in
-									NotesView(notes: song.obtainNotes(string: song.notes[index]))
-									Text(song.lyrics[index])
+									NotesView(notes: song.notes[index])
+									Text(song.lyrics[index][2..<song.lyrics[index].count])
+										.fontWeight(song.lyrics[index].hasPrefix("**") ? .bold : .regular)
 								}
 							}
 							.padding(.horizontal)
@@ -41,7 +42,7 @@ struct SongView: View {
 		.navigationTitle(song.title)
 		.navigationBarTitleDisplayMode(.inline)
 		.navigationBarItems(trailing:
-								HStack(spacing: 10) {
+								HStack(spacing: 15) {
 									Button {
 										if self.favorites.contains(song) {
 											self.favorites.remove(song)
@@ -60,9 +61,10 @@ struct SongView: View {
 									}
 								})
 		.navigationViewStyle(StackNavigationViewStyle())
-		.sheet(isPresented: $showingSettings) {
-			// menù dei settaggi
-		}
+		.background(EmptyView()
+						.sheet(isPresented: $showingSettings) {
+							// menù dei settaggi
+						})
     }
 }
 
