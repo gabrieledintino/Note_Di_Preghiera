@@ -20,6 +20,7 @@
 		465E634724F026D900AF3933 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E634624F026D900AF3933 /* WelcomeView.swift */; };
 		465E634924F0273300AF3933 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E634824F0273300AF3933 /* Favorites.swift */; };
 		465E634C24F0302800AF3933 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E634B24F0302800AF3933 /* SongView.swift */; };
+		4673762A2507C82C00996F23 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467376292507C82C00996F23 /* SearchBar.swift */; };
 		467F0F2424F929D200AFF644 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F0F2324F929D200AFF644 /* Tile.swift */; };
 		467F0F2624F92A7F00AFF644 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F0F2524F92A7F00AFF644 /* Chord.swift */; };
 		467F0F2824F92FAB00AFF644 /* String-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F0F2724F92FAB00AFF644 /* String-Extensions.swift */; };
@@ -44,6 +45,7 @@
 		465E634624F026D900AF3933 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		465E634824F0273300AF3933 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		465E634B24F0302800AF3933 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
+		467376292507C82C00996F23 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		467F0F2324F929D200AFF644 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		467F0F2524F92A7F00AFF644 /* Chord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		467F0F2724F92FAB00AFF644 /* String-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extensions.swift"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				46C222EB24F15C660026EB81 /* NoteView.swift */,
 				46C222EF24F1D03E0026EB81 /* DetailNoteView.swift */,
 				467F0F2324F929D200AFF644 /* Tile.swift */,
+				467376292507C82C00996F23 /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				460C404424EF23BD003B7760 /* Canta_e_CamminaApp.swift in Sources */,
 				465E634C24F0302800AF3933 /* SongView.swift in Sources */,
 				465E633F24EFE83400AF3933 /* Song.swift in Sources */,
+				4673762A2507C82C00996F23 /* SearchBar.swift in Sources */,
 				465E634124EFE90000AF3933 /* Bundle-Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

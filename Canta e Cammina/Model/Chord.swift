@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Chord {
-	let note: String
+	let chord: String
 	let image: String
 	let description: String
 }
