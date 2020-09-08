@@ -23,6 +23,7 @@ struct DetailNoteView: View {
 				.font(.largeTitle)
 			Text("Qui andrà una descrizione")
 		}
+		.frame(width: 400, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
 }
 

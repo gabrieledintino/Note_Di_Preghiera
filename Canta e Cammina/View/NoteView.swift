@@ -21,9 +21,12 @@ struct NoteView: View {
 				Text(note)
 			}
 		}
-		.sheet(isPresented: $isShowingNote) {
+		.popover(isPresented: $isShowingNote, content: {
 			DetailNoteView(note: note)
-		}
+		})
+//		.sheet(isPresented: $isShowingNote) {
+//			DetailNoteView(note: note)
+//		}
     }
 }
 

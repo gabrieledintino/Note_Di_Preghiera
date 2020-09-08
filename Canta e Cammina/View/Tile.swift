@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-//struct Tile: View {
-//	var category: TrackedItem
-//
-//	var body: some View {
-//		ZStack {
-//			Rectangle()
+struct Tile: View {
+
+	var body: some View {
+		ZStack {
+			Rectangle()
 //				.frame(width: 200, height: 75)
-//				LinearGradient(gradient: Gradient(colors: [.yellow, .red]), startPoint: .top, endPoint: .bottom)
-//				.clipShape(RoundedRectangle(cornerRadius: 10))
+				LinearGradient(gradient: Gradient(colors: [.yellow, .red]), startPoint: .top, endPoint: .bottom)
+				.clipShape(RoundedRectangle(cornerRadius: 10))
 //			HStack {
 //				VStack(alignment: .leading) {
 //					Text("\(item.name)")
@@ -29,9 +28,9 @@ import SwiftUI
 //				Text("Completed \(item.count) times")
 //					.foregroundColor(.white)
 //			}
-//		}
-//	}
-//}
+		}
+	}
+}
 //
 //struct Tile_Previews: PreviewProvider {
 //    static var previews: some View {

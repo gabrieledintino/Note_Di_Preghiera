@@ -19,18 +19,23 @@ struct SongView: View {
 					ScrollView(.vertical) {
 						HStack {
 							VStack(alignment: .leading, spacing: 5) {
-								Text(song.title)
-									.font(.title)
-									.fontWeight(.bold)
-									.padding(5)
+//								Text(song.title)
+//									.font(.title)
+//									.fontWeight(.bold)
+//									.padding(5)
 								
 								if song.intro != nil {
 									NotesView(notes: song.obtainNotes(string: song.intro!))
 								}
 								ForEach(0..<song.notes.count) { index in
 									NotesView(notes: song.notes[index])
-									Text(song.lyrics[index][2..<song.lyrics[index].count])
-										.fontWeight(song.lyrics[index].hasPrefix("**") ? .bold : .regular)
+									
+									if song.lyrics[index].hasPrefix("**") {
+										Text(song.lyrics[index][2..<song.lyrics[index].count])
+											.fontWeight(.bold)
+									} else {
+										Text(song.lyrics[index])
+									}
 								}
 							}
 							.padding(.horizontal)
@@ -40,7 +45,7 @@ struct SongView: View {
 					}
 //			}
 		.navigationTitle(song.title)
-		.navigationBarTitleDisplayMode(.inline)
+		.navigationBarTitleDisplayMode(.automatic)
 		.navigationBarItems(trailing:
 								HStack(spacing: 15) {
 									Button {

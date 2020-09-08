@@ -50,8 +50,7 @@
 						  "Sia     lode al Suo no__me!",
 						  "    ",
 						  "          Sia lode  al  Signor!"],
-		"categories": ["Alleluia",
-						"Offertorio"],
+		"categories": ["Alleluia"],
 		"otherNotes": "OtherNotes 0"
 	},
 	
@@ -102,8 +101,10 @@
 				   "Questo è il tempo che Dio ha scelto per te,",
 				   "LAM                             FA",
 				   "questo è il sogno che aveva su te"],
-		"categories": ["Canto finale",
-						"Offertorio"],
+		"categories": ["Comunione",
+						"Offertorio",
+						"Adorazione",
+						"Matrimonio"],
 		"otherNotes": "(Tutti insieme senza doppie voci)"
 	}
 ]
