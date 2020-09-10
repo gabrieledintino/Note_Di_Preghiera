@@ -8,8 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct Chord {
+struct Chord: Codable, Hashable {
 	let chord: String
 	let image: String
 	let description: String
+	
+	static let allChords: [Chord] = Bundle.main.decode("chords.json")
+	static let example = allChords[0]
+	
+	
 }

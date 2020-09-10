@@ -19,23 +19,17 @@ struct SongView: View {
 					ScrollView(.vertical) {
 						HStack {
 							VStack(alignment: .leading, spacing: 5) {
-//								Text(song.title)
-//									.font(.title)
-//									.fontWeight(.bold)
-//									.padding(5)
-								
+								if song.otherNotes != nil {
+									Text(song.otherNotes!)
+										.italic()
+										.padding(.vertical)
+								}
 								if song.intro != nil {
 									NotesView(notes: song.obtainNotes(string: song.intro!))
 								}
 								ForEach(0..<song.notes.count) { index in
 									NotesView(notes: song.notes[index])
-									
-									if song.lyrics[index].hasPrefix("**") {
-										Text(song.lyrics[index][2..<song.lyrics[index].count])
-											.fontWeight(.bold)
-									} else {
-										Text(song.lyrics[index])
-									}
+									obtainText(index: index)
 								}
 							}
 							.padding(.horizontal)
@@ -71,6 +65,15 @@ struct SongView: View {
 							// menù dei settaggi
 						})
     }
+	
+	func obtainText(index: Int) -> some View {
+		if song.lyrics[index].hasPrefix("**") {
+			return Text(song.lyrics[index][2..<song.lyrics[index].count])
+				.fontWeight(.bold)
+		} else {
+			return Text(song.lyrics[index])
+		}
+	}
 }
 
 struct SongView_Previews: PreviewProvider {

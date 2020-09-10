@@ -12,7 +12,7 @@ struct Song: Codable, Hashable {
 	let intro: String?
 	let notesAndLyrics: [String]
 	let categories: [String]
-	let otherNotes: String
+	let otherNotes: String?
 	
 	
 	static let allSongs: [Song] = Bundle.main.decode("songs.json")

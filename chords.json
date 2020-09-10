@@ -1,0 +1,43 @@
+[
+	{
+		"chord": "DO",
+		"image": "DO",
+		"description": "Descrizione del DO",
+	},
+	
+	{
+		"chord": "RE",
+		"image": "RE",
+		"description": "Descrizione del RE",
+	},
+	
+	{
+		"chord": "MI",
+		"image": "MI",
+		"description": "Descrizione del MI",
+	},
+	
+	{
+		"chord": "FA",
+		"image": "FA",
+		"description": "Descrizione del FA",
+	},
+	
+	{
+		"chord": "SOL",
+		"image": "SOL",
+		"description": "Descrizione del SOL",
+	},
+	
+	{
+		"chord": "LA",
+		"image": "LA",
+		"description": "Descrizione del LA",
+	},
+	
+	{
+		"chord": "SI",
+		"image": "SI",
+		"description": "Descrizione del SI",
+	}
+]
