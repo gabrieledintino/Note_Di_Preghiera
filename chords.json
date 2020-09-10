@@ -1,43 +1,43 @@
 [
 	{
-		"chord": "DO",
+		"chordName": "DO",
 		"image": "DO",
-		"description": "Descrizione del DO",
+		"description": "Descrizione del DO"
 	},
 	
 	{
-		"chord": "RE",
+		"chordName": "RE",
 		"image": "RE",
-		"description": "Descrizione del RE",
+		"description": "Descrizione del RE"
 	},
 	
 	{
-		"chord": "MI",
+		"chordName": "MI",
 		"image": "MI",
-		"description": "Descrizione del MI",
+		"description": "Descrizione del MI"
 	},
 	
 	{
-		"chord": "FA",
+		"chordName": "FA",
 		"image": "FA",
-		"description": "Descrizione del FA",
+		"description": "Descrizione del FA"
 	},
 	
 	{
-		"chord": "SOL",
+		"chordName": "SOL",
 		"image": "SOL",
-		"description": "Descrizione del SOL",
+		"description": "Descrizione del SOL"
 	},
 	
 	{
-		"chord": "LA",
+		"chordName": "LA",
 		"image": "LA",
-		"description": "Descrizione del LA",
+		"description": "Descrizione del LA"
 	},
 	
 	{
-		"chord": "SI",
+		"chordName": "SI",
 		"image": "SI",
-		"description": "Descrizione del SI",
+		"description": "Descrizione del SI"
 	}
 ]

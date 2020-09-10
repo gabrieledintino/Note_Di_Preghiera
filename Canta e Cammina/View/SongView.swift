@@ -25,7 +25,12 @@ struct SongView: View {
 										.padding(.vertical)
 								}
 								if song.intro != nil {
-									NotesView(notes: song.obtainNotes(string: song.intro!))
+									HStack {
+										Text("Intro: ")
+											.italic()
+										NotesView(notes: song.obtainNotes(string: song.intro!))
+									}
+									.padding(.bottom)
 								}
 								ForEach(0..<song.notes.count) { index in
 									NotesView(notes: song.notes[index])

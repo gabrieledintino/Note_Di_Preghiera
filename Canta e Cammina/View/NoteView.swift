@@ -14,7 +14,7 @@ struct NoteView: View {
     var body: some View {
 		ZStack {
 			if !note.hasPrefix(" ") {
-				Button(note) {
+				Button(Chord.obtainChord(note: note).chordName) {
 					self.isShowingNote = true
 				}
 			} else {
@@ -28,6 +28,10 @@ struct NoteView: View {
 //			DetailNoteView(note: note)
 //		}
     }
+	
+//	func obtainChord(name: String) -> Chord {
+//		return Chord.allChords.first(where: { $0.chordName == note }) ?? Chord(chordName: "SI", image: "SI", description: "SI")
+//	}
 }
 
 struct NoteView_Previews: PreviewProvider {

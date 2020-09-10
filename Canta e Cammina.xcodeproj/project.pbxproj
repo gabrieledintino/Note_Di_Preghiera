@@ -109,13 +109,13 @@
 			isa = PBXGroup;
 			children = (
 				465E634024EFE90000AF3933 /* Bundle-Decodable.swift */,
+				467F0F2724F92FAB00AFF644 /* String-Extensions.swift */,
 				465E634824F0273300AF3933 /* Favorites.swift */,
+				467F0F2524F92A7F00AFF644 /* Chord.swift */,
 				465E633E24EFE83400AF3933 /* Song.swift */,
 				465E634224F00AEA00AF3933 /* songs.json */,
 				46C8BA1A250A890200664EA2 /* chords.json */,
 				460C404E24EF23BE003B7760 /* Canta_e_Cammina.xcdatamodeld */,
-				467F0F2524F92A7F00AFF644 /* Chord.swift */,
-				467F0F2724F92FAB00AFF644 /* String-Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
