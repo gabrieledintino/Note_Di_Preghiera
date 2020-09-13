@@ -11,11 +11,13 @@ import SwiftUI
 struct Canta_e_CamminaApp: App {
     let persistenceController = PersistenceController.shared
 	@ObservedObject var favorites = Favorites()
+	@ObservedObject var settings = Settings()
 
     var body: some Scene {
         WindowGroup {
 			HomeView()
 				.environmentObject(favorites)
+				.environmentObject(settings)
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

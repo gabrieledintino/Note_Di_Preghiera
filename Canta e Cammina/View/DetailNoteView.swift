@@ -10,16 +10,16 @@ import SwiftUI
 struct DetailNoteView: View {
 	@Environment(\.presentationMode) var presentationMode
 	
-	var note: String
+	var chord: Chord
 	
     var body: some View {
 		VStack {
-			Image(note)
+			Image(chord.image)
 				.resizable()
 				.scaledToFit()
 				.frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 			
-			Text(note)
+			Text(chord.chordName)
 				.font(.largeTitle)
 			Text("Qui andrà una descrizione")
 		}
@@ -29,6 +29,6 @@ struct DetailNoteView: View {
 
 struct DetailNoteView_Previews: PreviewProvider {
     static var previews: some View {
-		DetailNoteView(note: "la")
+		DetailNoteView(chord: Chord.exampleChord)
     }
 }

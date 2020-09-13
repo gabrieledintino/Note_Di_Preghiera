@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct NoteView: View {
-	var note: String
 	@State private var isShowingNote = false
+	@EnvironmentObject var settings: Settings
+	var note: String
+	var song: Song
+	
+	var chord: Chord {
+		Chord.obtainChord(note: note, offset: self.settings.getOffset(song))
+	}
 	
     var body: some View {
 		ZStack {
 			if !note.hasPrefix(" ") {
-				Button(Chord.obtainChord(note: note).chordName) {
+				Button(chord.chordName) {
 					self.isShowingNote = true
 				}
 			} else {
@@ -22,20 +28,13 @@ struct NoteView: View {
 			}
 		}
 		.popover(isPresented: $isShowingNote, content: {
-			DetailNoteView(note: note)
+			DetailNoteView(chord: chord)
 		})
-//		.sheet(isPresented: $isShowingNote) {
-//			DetailNoteView(note: note)
-//		}
     }
-	
-//	func obtainChord(name: String) -> Chord {
-//		return Chord.allChords.first(where: { $0.chordName == note }) ?? Chord(chordName: "SI", image: "SI", description: "SI")
-//	}
 }
 
 struct NoteView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteView(note: "SI DO")
+		NoteView(note: "SI DO", song: Song.example)
     }
 }

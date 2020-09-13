@@ -1,7 +1,7 @@
 [
 	{
 		"title": "Alleluia lode cosmica",
-		"intro": "",
+		"intro": null,
 		"notesAndLyrics": ["RE-  FA           DO ",
 							"Alleluia, alleluia!",
 						  "SOL-     SIb       RE- ",
@@ -51,12 +51,12 @@
 						  "    ",
 						  "          Sia lode  al  Signor!"],
 		"categories": ["Alleluia"],
-		"otherNotes": ""
+		"otherNotes": null
 	},
 	
 	{
 		"title": "Tutto è possibile (Giuliano Pili)",
-		"intro": "LA MI FA#- RE",
+		"intro": "DO SOL LAM FA",
 		"notesAndLyrics": ["DO                           SOL",
 					"Questo è il luogo che Dio ha scelto per te,",
 				   "LAM                             FA",

@@ -13,8 +13,9 @@ struct Chord: Codable, Hashable {
 	let image: String
 	let description: String
 	
-	static let allChords: [Chord] = Bundle.main.decode("chords.json")	// get all the chord types
-	static let example = allChords[0]
+	static let allChords: [[Chord]] = Bundle.main.decode("chords.json")	// get all the chord types
+	static let exampleSeries = allChords[0]
+	static let exampleChord = allChords[0][0]
 	
 	static let `do` = Chord(chordName: "DO", image: "DO", description: "Descrizione del DO")
 	static let re = Chord(chordName: "RE", image: "RE", description: "Descrizione del RE")
@@ -35,36 +36,72 @@ struct Chord: Codable, Hashable {
 		case SI = "SI"
 	}
 	
+	// posso creare uno switch per ottenere l'array corretto, controllando con .contains se una nota ha la "m", un numero, o entrambi, e restituendo l'array corretto.
 	
-	static func obtainChord(note: String) -> Chord {
-//		var suffix = note[note.count-2...note.count-1]
-		let prefix = note[0..<2]
-		
-
-		
-		let chord = Chord.allChords.first(where: { $0.chordName == note }) ?? getDefaultChord(prefix: prefix)
-		return chord
+	static func getCorrectChords(note: String) -> [Chord] {
+		switch note {
+		case let x where x.contains("-") && x.contains("2"):
+			return allChords[8]
+		case let x where x.contains("-") && x.contains("3"):
+			return allChords[9]
+		case let x where x.contains("-") && x.contains("4"):
+			return allChords[10]
+		case let x where x.contains("-") && x.contains("5"):
+			return allChords[11]
+		case let x where x.contains("-") && x.contains("6"):
+			return allChords[12]
+		case let x where x.contains("-") && x.contains("7"):
+			return allChords[13]
+		case let x where x.contains("-"):
+			return allChords[7]
+		case let x where x.contains("2"):
+			return allChords[1]
+		case let x where x.contains("3"):
+			return allChords[2]
+		case let x where x.contains("4"):
+			return allChords[3]
+		case let x where x.contains("5"):
+			return allChords[4]
+		case let x where x.contains("6"):
+			return allChords[5]
+		case let x where x.contains("7"):
+			return allChords[6]
+		default:
+			return allChords[0]
+		}
 	}
 	
-	static func getDefaultChord(prefix: String) -> Chord {
+	static func obtainChord(note: String, offset: Int) -> Chord {
+//		var suffix = note[note.count-2...note.count-1]
+		let prefix = note[0..<2]						// get the first two digits of the chord to extrapolate the chord to be used if proper chord can't be identified
+		let chordArray = getCorrectChords(note: note)
+		if let chordBaseIndex = chordArray.firstIndex(where: { $0.chordName == note }) {
+			return chordArray[(chordBaseIndex + offset) % chordArray.count]
+		} else {
+			let defaultChordBaseIndex = getDefaultChordIndex(prefix: prefix)
+			return chordArray[(defaultChordBaseIndex + offset) % chordArray.count]
+		}
+	}
+	
+	private static func getDefaultChordIndex(prefix: String) -> Int {
 		let chord = ChordBaseType(rawValue: prefix)
 		switch chord {						//
 		case .DO:
-			return Chord.allChords[0]
+			return Chord.allChords[0].firstIndex(of: Self.do)!
 		case .RE:
-			return Chord.allChords[1]
+			return Chord.allChords[0].firstIndex(of: Self.re)!
 		case .MI:
-			return Chord.allChords[2]
+			return Chord.allChords[0].firstIndex(of: Self.mi)!
 		case .FA:
-			return Chord.allChords[3]
+			return Chord.allChords[0].firstIndex(of: Self.fa)!
 		case .SOL:
-			return Chord.allChords[4]
+			return Chord.allChords[0].firstIndex(of: Self.sol)!
 		case .LA:
-			return Chord.allChords[5]
+			return Chord.allChords[0].firstIndex(of: Self.la)!
 		case .SI:
-			return Chord.allChords[6]
+			return Chord.allChords[0].firstIndex(of: Self.si)!
 		case .none:
-			return Chord.allChords[0]
+			return Chord.allChords[0].firstIndex(of: Self.do)!
 		}
 	}
 }

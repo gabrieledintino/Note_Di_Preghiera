@@ -9,11 +9,12 @@ import SwiftUI
 
 struct NotesView: View {
 	var notes: [String]
+	var song: Song
 	
     var body: some View {
 		HStack(spacing: 0) {
 				ForEach(notes, id: \.self) { note in
-					NoteView(note: note)
+					NoteView(note: note, song: song)
 				}
 		}
     }
@@ -21,6 +22,6 @@ struct NotesView: View {
 
 struct NotesView_Previews: PreviewProvider {
     static var previews: some View {
-        NotesView(notes: ["SI", "   ", "LA", "DO"])
+		NotesView(notes: ["SI", "   ", "LA", "DO"], song: Song.example)
     }
 }

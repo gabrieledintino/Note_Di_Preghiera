@@ -28,12 +28,12 @@ struct SongView: View {
 									HStack {
 										Text("Intro: ")
 											.italic()
-										NotesView(notes: song.obtainNotes(string: song.intro!))
+										NotesView(notes: song.obtainNotes(string: song.intro!), song: song)
 									}
 									.padding(.bottom)
 								}
 								ForEach(0..<song.notes.count) { index in
-									NotesView(notes: song.notes[index])
+									NotesView(notes: song.notes[index], song: song)
 									obtainText(index: index)
 								}
 							}
@@ -61,13 +61,18 @@ struct SongView: View {
 									Button {
 										self.showingSettings = true
 									} label: {
-										Image(systemName: "gear")
+										Image(systemName: "music.note")
+										Text("Impostazioni")
 									}
 								})
 		.navigationViewStyle(StackNavigationViewStyle())
+//		.background(EmptyView()
+//						.sheet(isPresented: $showingSettings) {
+//							SettingsView()
+//						})
 		.background(EmptyView()
-						.sheet(isPresented: $showingSettings) {
-							// menù dei settaggi
+						.popover(isPresented: $showingSettings, attachmentAnchor: .point(.topTrailing), arrowEdge: .top) {
+							SettingsView(song: song)
 						})
     }
 	
