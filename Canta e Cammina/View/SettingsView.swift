@@ -22,6 +22,9 @@ struct SettingsView: View {
 			})
 		
 		VStack {
+            Button("Azzera toni") { withAnimation {
+                selectedOffset = 0
+            } }
 			Picker(selection: offset, label: Text("Seleziona di quanto vuoi variare i toni")) {
 				ForEach(0..<offsets.count) {
 					Text(self.offsets[$0])
@@ -39,8 +42,8 @@ struct SettingsView: View {
 	}
 }
 
-//struct SettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//		SettingsView(song: Song.example)
-//    }
-//}
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+		SettingsView(song: Song.example)
+    }
+}
