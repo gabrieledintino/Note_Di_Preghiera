@@ -13,6 +13,8 @@ class Settings: ObservableObject, Codable {
 	
 	// the key we're using to read/write in UserDefaults
 	static private let saveKey = "Settings"
+    
+    var chantMode: Bool = false
 	
 	init() {
 		let decoder = JSONDecoder()
@@ -64,4 +66,13 @@ class Settings: ObservableObject, Codable {
 			UserDefaults.standard.set(encoded, forKey: Self.saveKey)
 		}
 	}
+    
+    func getMode() -> Bool {
+        return chantMode
+    }
+
+    func chantModeToggle() {
+        objectWillChange.send()
+        self.chantMode.toggle()
+    }
 }

@@ -20,11 +20,13 @@ struct NoteView: View {
     var body: some View {
 		ZStack {
 			if !note.hasPrefix(" ") {
-				Button(chord.chordName) {
+                Button(chord.chordName) {
 					self.isShowingNote = true
 				}
+                .animation(.spring())
 			} else {
 				Text(note)
+                    .animation(.spring())
 			}
 		}
 		.popover(isPresented: $isShowingNote, content: {
