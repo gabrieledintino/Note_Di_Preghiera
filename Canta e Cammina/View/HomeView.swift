@@ -38,12 +38,13 @@ struct HomeView: View {
 				
 				Spacer()
 				Section {
-					VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 10) {
 						Text("Categorie")
 							.font(.title)
 							.fontWeight(.bold)
-						ScrollView(.horizontal, showsIndicators: true) {
-							HStack {
+                            .padding(.leading)
+						ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 0) {
                                 ForEach(Song.allCategories, id: \.self) { category in
                                     NavigationLink(destination: ListView(songs: songs, category: category)) {
                                         TileView(name: category)
@@ -52,10 +53,13 @@ struct HomeView: View {
 								}
 							}
 						}
+                        
 						Text("Scaletta")
 							.font(.title)
 							.fontWeight(.bold)
-						ScrollView(.horizontal, showsIndicators: true) {
+                            .padding(.leading)
+
+						ScrollView(.horizontal, showsIndicators: false) {
 							HStack {
 								ForEach(0..<6) {_ in
 									Rectangle()
@@ -65,7 +69,7 @@ struct HomeView: View {
 							}
 						}
 					}
-					.padding()
+//					.padding()
 				}
 			}
 

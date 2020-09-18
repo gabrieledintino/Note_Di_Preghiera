@@ -83,11 +83,12 @@ struct TileView: View {
 //					.foregroundColor(.white)
 //			}
 		}
+        .padding(.leading, 10)
 	}
 }
 //
-//struct TileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TileView(name: "Test")
-//    }
-//}
+struct TileView_Previews: PreviewProvider {
+    static var previews: some View {
+        TileView(name: "Test")
+    }
+}

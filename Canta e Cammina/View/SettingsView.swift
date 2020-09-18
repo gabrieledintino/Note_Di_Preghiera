@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
 	@EnvironmentObject var settings: Settings
+    @Environment(\.presentationMode) var presentationMode
 	var song: Song
 	@State private var selectedOffset = 0
 	var offsets = ["0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5"]
@@ -30,6 +31,12 @@ struct SettingsView: View {
                 )
 		
 		VStack {
+            HStack {
+                Spacer()
+                Button("Fatto", action: dismiss)
+            }
+            Spacer()
+            
             Button("Azzera toni") { withAnimation {
 //                selectedOffset = 0
                 offset.wrappedValue = 0
@@ -55,6 +62,9 @@ struct SettingsView: View {
 	}
     func readChantMode() {
         self.chantMode = self.settings.getMode()
+    }
+    func dismiss() {
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
