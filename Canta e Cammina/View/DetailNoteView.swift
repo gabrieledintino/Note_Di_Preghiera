@@ -14,16 +14,31 @@ struct DetailNoteView: View {
 	
     var body: some View {
 		VStack {
+            HStack {
+                Spacer()
+                Button("Fatto", action: dismiss)
+            }
+            Spacer()
+            
 			Image(chord.image)
 				.resizable()
 				.scaledToFit()
-				.frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 300, height: 300, alignment: .center)
 			
 			Text(chord.chordName)
 				.font(.largeTitle)
 			Text("Qui andrà una descrizione")
+            Spacer()
 		}
-		.frame(width: 400, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .padding()
+        .if(UIDevice.current.userInterfaceIdiom == .pad) {
+            $0.frame(width: 400, height: 400, alignment: .center)
+        }
+		
+    }
+    
+    func dismiss() {
+        presentationMode.wrappedValue.dismiss()
     }
 }
 

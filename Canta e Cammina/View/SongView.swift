@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SongView: View {
 	@EnvironmentObject var favorites: Favorites
+    @EnvironmentObject var settings: Settings
 	@State private var showingSettings = false
 	
 	var song: Song
@@ -19,12 +20,12 @@ struct SongView: View {
 					ScrollView(.vertical) {
 						HStack {
 							VStack(alignment: .leading, spacing: 5) {
-								if song.otherNotes != nil {
+                                if song.otherNotes != nil {
 									Text(song.otherNotes!)
 										.italic()
 										.padding(.vertical)
 								}
-								if song.intro != nil {
+								if song.intro != nil && !settings.chantMode {
 									HStack {
 										Text("Intro: ")
 											.italic()
@@ -32,9 +33,16 @@ struct SongView: View {
 									}
 									.padding(.bottom)
 								}
+                                
 								ForEach(0..<song.notes.count) { index in
-									NotesView(notes: song.notes[index], song: song)
+                                    if !settings.chantMode {
+                                        NotesView(notes: song.notes[index], song: song)
+                                    }
 									obtainText(index: index)
+                                        .lineLimit(2)
+                                        .allowsTightening(true)
+                                        .animation(.spring())
+                                        .offset(x: 0, y: -4)
 								}
 							}
 							.padding(.horizontal)
@@ -66,10 +74,6 @@ struct SongView: View {
 									}
 								})
 		.navigationViewStyle(StackNavigationViewStyle())
-//		.background(EmptyView()
-//						.sheet(isPresented: $showingSettings) {
-//							SettingsView()
-//						})
 		.background(EmptyView()
 						.popover(isPresented: $showingSettings, attachmentAnchor: .point(.topTrailing), arrowEdge: .top) {
 							SettingsView(song: song)
@@ -80,10 +84,19 @@ struct SongView: View {
 		if song.lyrics[index].hasPrefix("**") {
 			return Text(song.lyrics[index][2..<song.lyrics[index].count])
 				.fontWeight(.bold)
-		} else {
+		} else if song.lyrics[index].hasPrefix("||") {
+            return Text(song.lyrics[index][2..<song.lyrics[index].count])
+                .italic()
+        } else {
 			return Text(song.lyrics[index])
 		}
 	}
+    
+//    func tightenedText(string: String) -> some View {
+//        return Text(string)
+//            .lineLimit(1)
+//            .allowsTightening(true)
+//    }
 }
 
 struct SongView_Previews: PreviewProvider {

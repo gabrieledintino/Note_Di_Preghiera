@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-	let songs: [Song] = Bundle.main.decode("songs.json")
+    let songs: [Song] = Song.allSongsOrdered
 //	@EnvironmentObject var favorites: Favorites
 	@State private var searchText = ""
 	
@@ -38,23 +38,28 @@ struct HomeView: View {
 				
 				Spacer()
 				Section {
-					VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 10) {
 						Text("Categorie")
 							.font(.title)
 							.fontWeight(.bold)
-						ScrollView(.horizontal, showsIndicators: true) {
-							HStack {
-								ForEach(0..<6) {_ in
-									Rectangle()
-										.foregroundColor(.red)
-										.frame(width: 200, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .padding(.leading)
+						ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 0) {
+                                ForEach(Song.allCategories, id: \.self) { category in
+                                    NavigationLink(destination: ListView(songs: songs, category: category)) {
+                                        TileView(name: category)
+                                            .frame(width: 200, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    }
 								}
 							}
 						}
+                        
 						Text("Scaletta")
 							.font(.title)
 							.fontWeight(.bold)
-						ScrollView(.horizontal, showsIndicators: true) {
+                            .padding(.leading)
+
+						ScrollView(.horizontal, showsIndicators: false) {
 							HStack {
 								ForEach(0..<6) {_ in
 									Rectangle()
@@ -64,7 +69,7 @@ struct HomeView: View {
 							}
 						}
 					}
-					.padding()
+//					.padding()
 				}
 			}
 

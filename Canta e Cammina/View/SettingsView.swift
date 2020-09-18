@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SettingsView: View {
 	@EnvironmentObject var settings: Settings
+    @Environment(\.presentationMode) var presentationMode
 	var song: Song
 	@State private var selectedOffset = 0
 	var offsets = ["0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5"]
+    @State private var chantMode = false
 	
     var body: some View {
 		let offset = Binding<Int>(
@@ -20,10 +22,24 @@ struct SettingsView: View {
 				self.selectedOffset = $0
 				self.settings.modifyOffset(song, offset: $0)
 			})
+        
+        let bind = Binding<Bool>(
+                  get:{self.chantMode},
+                  set:{self.chantMode = $0
+                    self.settings.chantModeToggle()
+                  }
+                )
 		
 		VStack {
+            HStack {
+                Spacer()
+                Button("Fatto", action: dismiss)
+            }
+            Spacer()
+            
             Button("Azzera toni") { withAnimation {
-                selectedOffset = 0
+//                selectedOffset = 0
+                offset.wrappedValue = 0
             } }
 			Picker(selection: offset, label: Text("Seleziona di quanto vuoi variare i toni")) {
 				ForEach(0..<offsets.count) {
@@ -32,18 +48,28 @@ struct SettingsView: View {
 			}
 //			.pickerStyle(SegmentedPickerStyle())
 			Text("Hai selezionato \(offsets[selectedOffset]) toni in più")
+            
+            Toggle("Modalità canto", isOn: bind)
+
 		}
-		.frame(width: 300, height: 300, alignment: .center)
-		.onAppear(perform: { readOffset(song: song) })
+        .padding()
+//		.frame(width: 300, height: 300, alignment: .center)
+        .onAppear(perform: { readOffset(song: song); readChantMode() })
     }
 	
 	func readOffset(song: Song) {
 		self.selectedOffset = self.settings.getOffset(song)
 	}
+    func readChantMode() {
+        self.chantMode = self.settings.getMode()
+    }
+    func dismiss() {
+        presentationMode.wrappedValue.dismiss()
+    }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-		SettingsView(song: Song.example)
+        SettingsView(song: Song.example)
     }
 }
