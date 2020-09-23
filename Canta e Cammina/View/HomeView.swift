@@ -66,7 +66,6 @@ struct HomeView: View {
                         }
                         if showRecentlyPlayed {
                             ScrollView(.horizontal, showsIndicators: false) {
-//                                LazyHGrid(rows: [rows[0]], alignment: .center, spacing: 0) {
                                 HStack(spacing: 0) {
                                     ForEach(recentlyPlayed.getRecentlyPlayed(), id: \.self) { song in
                                             NavigationLink(destination: SongView(song: song)) {
@@ -75,7 +74,6 @@ struct HomeView: View {
                                     }
                                 }
                                 .frame(maxHeight: 40)
-//                                }.frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
                             }
                         }
                         
