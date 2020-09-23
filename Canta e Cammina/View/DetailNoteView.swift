@@ -30,9 +30,10 @@ struct DetailNoteView: View {
 			Text("Qui andrà una descrizione")
             Spacer()
 		}
+        .background(Color.white)
         .padding()
         .if(UIDevice.current.userInterfaceIdiom == .pad) {
-            $0.frame(width: 400, height: 400, alignment: .center)
+            $0.frame(width: 400, height: 450, alignment: .center)
         }
 		
     }

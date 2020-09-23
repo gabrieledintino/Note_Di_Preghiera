@@ -10,6 +10,7 @@ import SwiftUI
 struct SongView: View {
 	@EnvironmentObject var favorites: Favorites
     @EnvironmentObject var settings: Settings
+    @EnvironmentObject var recentlyPlayed: RecentlyPlayedSongs
 	@State private var showingSettings = false
 	
 	var song: Song
@@ -49,7 +50,9 @@ struct SongView: View {
 							
 							Spacer()
 						}
-					}
+                    }.onAppear(perform: {
+                        self.recentlyPlayed.add(song)
+                    })
 //			}
 		.navigationTitle(song.title)
 		.navigationBarTitleDisplayMode(.automatic)

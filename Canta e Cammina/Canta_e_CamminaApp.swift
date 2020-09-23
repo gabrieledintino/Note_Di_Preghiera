@@ -12,12 +12,14 @@ struct Canta_e_CamminaApp: App {
     let persistenceController = PersistenceController.shared
 	@ObservedObject var favorites = Favorites()
 	@ObservedObject var settings = Settings()
+    @ObservedObject var recentlyPlayed = RecentlyPlayedSongs()
 
     var body: some Scene {
         WindowGroup {
 			HomeView()
 				.environmentObject(favorites)
 				.environmentObject(settings)
+                .environmentObject(recentlyPlayed)
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

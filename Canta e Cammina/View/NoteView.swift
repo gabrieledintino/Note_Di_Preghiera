@@ -18,7 +18,7 @@ struct NoteView: View {
 	}
 	
     var body: some View {
-		ZStack {
+		VStack {
 			if !note.hasPrefix(" ") {
                 Button(chord.chordName) {
 					self.isShowingNote = true

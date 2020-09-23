@@ -10,7 +10,15 @@ import SwiftUI
 struct HomeView: View {
     let songs: [Song] = Song.allSongsOrdered
 //	@EnvironmentObject var favorites: Favorites
+    @EnvironmentObject var recentlyPlayed: RecentlyPlayedSongs
 	@State private var searchText = ""
+    @State private var showRecentlyPlayed = false
+    @State private var showCategories = false
+    @State private var showPlaylists = false
+    let rows: [GridItem] = [
+        GridItem(.flexible(minimum: 20, maximum: 40), spacing: 5),
+        GridItem(.flexible(minimum: 20, maximum: 40), spacing: 5),
+    ]
 	
     var body: some View {
 		NavigationView {
@@ -37,39 +45,110 @@ struct HomeView: View {
 //				.frame(maxHeight: 500)
 				
 				Spacer()
-				Section {
-                    VStack(alignment: .leading, spacing: 10) {
-						Text("Categorie")
-							.font(.title)
-							.fontWeight(.bold)
-                            .padding(.leading)
-						ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 0) {
-                                ForEach(Song.allCategories, id: \.self) { category in
-                                    NavigationLink(destination: ListView(songs: songs, category: category)) {
-                                        TileView(name: category)
+				HStack {
+                    VStack(alignment: .leading, spacing: 5) {
+                        HStack {
+                            Text("Recenti")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.leading)
+                            Button(action: {
+                                withAnimation {
+                                    self.showRecentlyPlayed.toggle()
+                                }
+                            }) {
+                                Image(systemName: "chevron.right.circle")
+                                    .imageScale(.large)
+                                    .rotationEffect(.degrees(showRecentlyPlayed ? 90 : 0))
+                                    .scaleEffect(showRecentlyPlayed ? 1.2 : 1)
+                                    .padding()
+                            }
+                        }
+                        if showRecentlyPlayed {
+                            ScrollView(.horizontal, showsIndicators: false) {
+//                                LazyHGrid(rows: [rows[0]], alignment: .center, spacing: 0) {
+                                HStack(spacing: 0) {
+                                    ForEach(recentlyPlayed.getRecentlyPlayed(), id: \.self) { song in
+                                            NavigationLink(destination: SongView(song: song)) {
+                                                TileView(name: song.title)
+                                            }
+                                    }
+                                }
+                                .frame(maxHeight: 40)
+//                                }.frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
+                            }
+                        }
+                        
+                        HStack {
+                            Text("Categorie")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.leading)
+                            Button(action: {
+                                withAnimation {
+                                    self.showCategories.toggle()
+                                }
+                            }) {
+                                Image(systemName: "chevron.right.circle")
+                                    .imageScale(.large)
+                                    .rotationEffect(.degrees(showCategories ? 90 : 0))
+                                    .scaleEffect(showCategories ? 1.2 : 1)
+                                    .padding()
+                            }
+                        }
+                        if showCategories {
+                            ScrollView(.horizontal, showsIndicators: false) {
+//                                HStack(spacing: 0) {
+//                                    ForEach(Song.allCategories, id: \.self) { category in
+//                                        NavigationLink(destination: ListView(songs: songs, category: category)) {
+//                                            TileView(name: category)
+//                                                .frame(width: 200, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                                        }
+//                                    }
+//                                }
+                                
+                                LazyHGrid(rows: rows, alignment: .center, spacing: 0) {
+                                    ForEach(Song.allCategories, id: \.self) { category in
+                                        NavigationLink(destination: ListView(songs: songs, category: category)) {
+                                            TileView(name: category)
+                                                .frame(width: 150, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        }
+                                    }
+                                }.frame(minHeight: 10, maxHeight: 100)
+                            }
+                        }
+                        
+                        HStack {
+                            Text("Scaletta")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.leading)
+                            Button(action: {
+                                withAnimation {
+                                    self.showPlaylists.toggle()
+                                }
+                            }) {
+                                Image(systemName: "chevron.right.circle")
+                                    .imageScale(.large)
+                                    .rotationEffect(.degrees(showPlaylists ? 90 : 0))
+                                    .scaleEffect(showPlaylists ? 1.2 : 1)
+                                    .padding()
+                            }
+                        }
+
+                        if showPlaylists {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(0..<6) {_ in
+                                        Rectangle()
+                                            .foregroundColor(.red)
                                             .frame(width: 200, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     }
-								}
-							}
-						}
-                        
-						Text("Scaletta")
-							.font(.title)
-							.fontWeight(.bold)
-                            .padding(.leading)
-
-						ScrollView(.horizontal, showsIndicators: false) {
-							HStack {
-								ForEach(0..<6) {_ in
-									Rectangle()
-										.foregroundColor(.red)
-										.frame(width: 200, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-								}
-							}
-						}
+                                }
+                            }
+                        }
 					}
-//					.padding()
+                    Spacer()
 				}
 			}
 
@@ -86,5 +165,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(Settings())
+            .environmentObject(RecentlyPlayedSongs())
     }
 }

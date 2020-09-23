@@ -68,7 +68,9 @@ struct TileView: View {
             Text(name)
                 .foregroundColor(.white)
                 .fontWeight(.bold)
-                .font(.title2)
+                .font(.headline)
+                .lineLimit(2)
+                .allowsTightening(true)
 //			HStack {
 //				VStack(alignment: .leading) {
 //					Text("\(item.name)")

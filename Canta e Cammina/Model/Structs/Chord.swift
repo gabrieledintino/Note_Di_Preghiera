@@ -54,6 +54,20 @@ struct Chord: Codable, Hashable {
 			return allChords[13]
 		case let x where x.contains("-"):
 			return allChords[7]
+        case let x where x.contains("+") && x.contains("2"):
+            return allChords[15]
+        case let x where x.contains("+") && x.contains("3"):
+            return allChords[16]
+        case let x where x.contains("+") && x.contains("4"):
+            return allChords[17]
+        case let x where x.contains("+") && x.contains("5"):
+            return allChords[18]
+        case let x where x.contains("+") && x.contains("6"):
+            return allChords[19]
+        case let x where x.contains("+") && x.contains("7"):
+            return allChords[20]
+        case let x where x.contains("+"):
+            return allChords[14]
 		case let x where x.contains("2"):
 			return allChords[1]
 		case let x where x.contains("3"):
@@ -75,7 +89,7 @@ struct Chord: Codable, Hashable {
 //		var suffix = note[note.count-2...note.count-1]
 		let prefix = note[0..<2]						// get the first two digits of the chord to extrapolate the chord to be used if proper chord can't be identified
 		let chordArray = getCorrectChords(note: note)
-		if let chordBaseIndex = chordArray.firstIndex(where: { $0.chordName == note }) {
+        if let chordBaseIndex = chordArray.firstIndex(where: { $0.chordName == note.uppercased() }) {
 			return chordArray[(chordBaseIndex + offset) % chordArray.count]
 		} else {
 			let defaultChordBaseIndex = getDefaultChordIndex(prefix: prefix)
