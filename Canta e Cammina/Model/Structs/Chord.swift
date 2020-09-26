@@ -38,8 +38,8 @@ struct Chord: Codable, Hashable {
 	
 	// posso creare uno switch per ottenere l'array corretto, controllando con .contains se una nota ha la "m", un numero, o entrambi, e restituendo l'array corretto.
 	
-	static func getCorrectChords(note: String) -> [Chord] {
-		switch note {
+	static func getCorrectChords(chord: String) -> [Chord] {
+		switch chord {
 		case let x where x.contains("-") && x.contains("2"):
 			return allChords[8]
 		case let x where x.contains("-") && x.contains("3"):
@@ -85,11 +85,11 @@ struct Chord: Codable, Hashable {
 		}
 	}
 	
-	static func obtainChord(note: String, offset: Int) -> Chord {
+	static func obtainChord(chord: String, offset: Int) -> Chord {
 //		var suffix = note[note.count-2...note.count-1]
-		let prefix = note[0..<2]						// get the first two digits of the chord to extrapolate the chord to be used if proper chord can't be identified
-		let chordArray = getCorrectChords(note: note)
-        if let chordBaseIndex = chordArray.firstIndex(where: { $0.chordName == note.uppercased() }) {
+		let prefix = chord[0..<2]						// get the first two digits of the chord to extrapolate the chord to be used if proper chord can't be identified
+		let chordArray = getCorrectChords(chord: chord)
+        if let chordBaseIndex = chordArray.firstIndex(where: { $0.chordName == chord.uppercased() }) {
 			return chordArray[(chordBaseIndex + offset) % chordArray.count]
 		} else {
 			let defaultChordBaseIndex = getDefaultChordIndex(prefix: prefix)

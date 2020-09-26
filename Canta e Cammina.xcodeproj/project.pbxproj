@@ -26,7 +26,7 @@
 		467F0F2624F92A7F00AFF644 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F0F2524F92A7F00AFF644 /* Chord.swift */; };
 		467F0F2824F92FAB00AFF644 /* String-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F0F2724F92FAB00AFF644 /* String-Extensions.swift */; };
 		46C222EC24F15C660026EB81 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222EB24F15C660026EB81 /* NoteView.swift */; };
-		46C222EE24F162F30026EB81 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222ED24F162F30026EB81 /* NotesView.swift */; };
+		46C222EE24F162F30026EB81 /* ChordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222ED24F162F30026EB81 /* ChordsView.swift */; };
 		46C222F024F1D03E0026EB81 /* DetailNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222EF24F1D03E0026EB81 /* DetailNoteView.swift */; };
 		46C8BA1B250A890200664EA2 /* chords.json in Resources */ = {isa = PBXBuildFile; fileRef = 46C8BA1A250A890200664EA2 /* chords.json */; };
 		46DAEACB2514E8A7008B0526 /* View-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DAEACA2514E8A7008B0526 /* View-Extensions.swift */; };
@@ -59,7 +59,7 @@
 		467F0F2524F92A7F00AFF644 /* Chord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		467F0F2724F92FAB00AFF644 /* String-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extensions.swift"; sourceTree = "<group>"; };
 		46C222EB24F15C660026EB81 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
-		46C222ED24F162F30026EB81 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		46C222ED24F162F30026EB81 /* ChordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordsView.swift; sourceTree = "<group>"; };
 		46C222EF24F1D03E0026EB81 /* DetailNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteView.swift; sourceTree = "<group>"; };
 		46C8BA1A250A890200664EA2 /* chords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chords.json; sourceTree = SOURCE_ROOT; };
 		46DAEACA2514E8A7008B0526 /* View-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Extensions.swift"; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				460C404524EF23BD003B7760 /* ContentView.swift */,
 				465E634424F00BC700AF3933 /* HomeView.swift */,
 				465E634B24F0302800AF3933 /* SongView.swift */,
-				46C222ED24F162F30026EB81 /* NotesView.swift */,
+				46C222ED24F162F30026EB81 /* ChordsView.swift */,
 				46C222EB24F15C660026EB81 /* NoteView.swift */,
 				46C222EF24F1D03E0026EB81 /* DetailNoteView.swift */,
 				467F0F2324F929D200AFF644 /* TileView.swift */,
@@ -258,7 +258,7 @@
 				E014E9C7250F802F00F4C57D /* Sequence-Extensions.swift in Sources */,
 				46C222F024F1D03E0026EB81 /* DetailNoteView.swift in Sources */,
 				467F0F2424F929D200AFF644 /* TileView.swift in Sources */,
-				46C222EE24F162F30026EB81 /* NotesView.swift in Sources */,
+				46C222EE24F162F30026EB81 /* ChordsView.swift in Sources */,
 				467F0F2624F92A7F00AFF644 /* Chord.swift in Sources */,
 				46EC8355250AC46F00A7989A /* Settings.swift in Sources */,
 				46DAEACB2514E8A7008B0526 /* View-Extensions.swift in Sources */,

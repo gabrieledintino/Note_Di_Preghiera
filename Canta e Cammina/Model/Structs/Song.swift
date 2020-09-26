@@ -40,6 +40,16 @@ struct Song: Codable, Hashable {
 //		}
 //		return temp
 //	}
+    lazy var lazyNotes: [[String]] = getNoteLines()
+    
+    func getNoteLines() -> [[String]] {
+        let lines = notesAndLyrics.components(separatedBy: .newlines)
+        var temp: [String] = []
+        _ = stride(from: 0, through: lines.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the chords and storing them in an array
+            temp.append(lines[index])
+        }
+        return temp.map { getNotes(string: $0) }
+    }
     
     var notes: [[String]] {                                                                         // function to get the chords of the song
         let lines = notesAndLyrics.components(separatedBy: .newlines)
@@ -47,7 +57,7 @@ struct Song: Codable, Hashable {
         _ = stride(from: 0, through: lines.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the chords and storing them in an array
             temp.append(lines[index])
         }
-        return temp.map { obtainNotes(string: $0) }                                                 // map the obtained array to have the different notes ready to be elaborated singularly
+        return temp.map { getNotes(string: $0) }                                                 // map the obtained array to have the different notes ready to be elaborated singularly
     }
     
     var lyrics: [String] {                                                                          // function to get the lyrics of the song
@@ -60,7 +70,7 @@ struct Song: Codable, Hashable {
     }
 	
 	
-	func obtainNotes(string: String) -> [String] {                                                  // function to separate the chords of the song
+	func getNotes(string: String) -> [String] {                                                  // function to separate the chords of the song
 		let notesArray: [String] = string.split(separator: " ", omittingEmptySubsequences: true).map { String($0)}
 		var counter = 0
 		var whitespaces: [String] = []

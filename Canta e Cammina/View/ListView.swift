@@ -26,7 +26,7 @@ struct ListView: View {
                 
             
             List(filteredSongs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
-                NavigationLink(destination: SongView(song: song)) {
+                NavigationLink(destination: SongView(song)) {
                     VStack(alignment: .leading) {
                         Text(song.title)
                             .font(.headline)

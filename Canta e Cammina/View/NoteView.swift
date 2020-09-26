@@ -10,22 +10,22 @@ import SwiftUI
 struct NoteView: View {
 	@State private var isShowingNote = false
 	@EnvironmentObject var settings: Settings
-	var note: String
+	var chordString: String
 	var song: Song
 	
 	var chord: Chord {
-		Chord.obtainChord(note: note, offset: self.settings.getOffset(song))
+		Chord.obtainChord(chord: chordString, offset: self.settings.getOffset(song))
 	}
 	
     var body: some View {
 		VStack {
-			if !note.hasPrefix(" ") {
+			if !chordString.hasPrefix(" ") {
                 Button(chord.chordName) {
 					self.isShowingNote = true
 				}
                 .animation(.spring())
 			} else {
-				Text(note)
+				Text(chordString)
                     .animation(.spring())
 			}
 		}
@@ -37,6 +37,6 @@ struct NoteView: View {
 
 struct NoteView_Previews: PreviewProvider {
     static var previews: some View {
-		NoteView(note: "SI DO", song: Song.example)
+		NoteView(chordString: "SI DO", song: Song.example)
     }
 }

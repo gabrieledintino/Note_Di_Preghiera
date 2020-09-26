@@ -14,7 +14,12 @@ struct SongView: View {
 	@State private var showingSettings = false
 	
 	var song: Song
-	
+    var chords: [[String]]
+    
+    init(_ newSong: Song) {
+        self.song = newSong
+        self.chords = newSong.getNoteLines()
+    }
 	
     var body: some View {
 //			GeometryReader { fullView in
@@ -30,14 +35,14 @@ struct SongView: View {
 									HStack {
 										Text("Intro: ")
 											.italic()
-										NotesView(notes: song.obtainNotes(string: song.intro!), song: song)
+										ChordsView(chords: song.getNotes(string: song.intro!), song: song)
 									}
 									.padding(.bottom)
 								}
                                 
 								ForEach(0..<song.notes.count) { index in
                                     if !settings.chantMode {
-                                        NotesView(notes: song.notes[index], song: song)
+                                        ChordsView(chords: chords[index], song: song)
                                     }
 									obtainText(index: index)
                                         .lineLimit(2)
@@ -52,6 +57,7 @@ struct SongView: View {
 						}
                     }.onAppear(perform: {
                         self.recentlyPlayed.add(song)
+//                        self.notes = song.lazyNotes
                     })
 //			}
 		.navigationTitle(song.title)
@@ -104,6 +110,6 @@ struct SongView: View {
 
 struct SongView_Previews: PreviewProvider {
     static var previews: some View {
-		SongView(song: Song.example)
+		SongView(Song.example)
     }
 }

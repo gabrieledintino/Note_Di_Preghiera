@@ -28,7 +28,7 @@ struct HomeView: View {
 
 				
 				List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
-					NavigationLink(destination: SongView(song: song)) {
+					NavigationLink(destination: SongView(song)) {
 						VStack(alignment: .leading) {
 							Text(song.title)
 								.font(.headline)
@@ -68,7 +68,7 @@ struct HomeView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 0) {
                                     ForEach(recentlyPlayed.getRecentlyPlayed(), id: \.self) { song in
-                                            NavigationLink(destination: SongView(song: song)) {
+                                            NavigationLink(destination: SongView(song)) {
                                                 TileView(name: song.title)
                                             }
                                     }
