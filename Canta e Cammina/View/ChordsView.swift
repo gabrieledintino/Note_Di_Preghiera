@@ -14,7 +14,7 @@ struct ChordsView: View {
     var body: some View {
 		HStack(spacing: 0) {
 				ForEach(chords, id: \.self) { chord in
-					NoteView(chordString: chord, song: song)
+					ChordView(chordString: chord, song: song)
 				}
 		}
     }

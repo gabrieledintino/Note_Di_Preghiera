@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailNoteView: View {
+struct DetailChordView: View {
 	@Environment(\.presentationMode) var presentationMode
 	
 	var chord: Chord
@@ -45,6 +45,6 @@ struct DetailNoteView: View {
 
 struct DetailNoteView_Previews: PreviewProvider {
     static var previews: some View {
-		DetailNoteView(chord: Chord.exampleChord)
+		DetailChordView(chord: Chord.exampleChord)
     }
 }

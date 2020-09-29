@@ -27,17 +27,19 @@ struct ListView: View {
             
             List(filteredSongs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
                 NavigationLink(destination: SongView(song)) {
-                    VStack(alignment: .leading) {
-                        Text(song.title)
-                            .font(.headline)
-                    }.layoutPriority(1)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(song.title)
+                                .font(.headline)
+                        }.layoutPriority(1)
+                    }
                     
-                        if self.favorites.contains(song) {
-                            Spacer()
-                            Image(systemName: "heart.fill")
-                            .accessibility(label: Text("This is a favorite song"))
-                                .foregroundColor(.red)
-                        }
+                    if self.favorites.contains(song) {
+                        Spacer()
+                        Image(systemName: "heart.fill")
+                        .accessibility(label: Text("This is a favorite song"))
+                            .foregroundColor(.red)
+                    }
                 }
             }
         }

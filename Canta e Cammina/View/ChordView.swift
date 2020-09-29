@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NoteView: View {
+struct ChordView: View {
 	@State private var isShowingNote = false
 	@EnvironmentObject var settings: Settings
 	var chordString: String
@@ -30,13 +30,13 @@ struct NoteView: View {
 			}
 		}
 		.popover(isPresented: $isShowingNote, content: {
-			DetailNoteView(chord: chord)
+			DetailChordView(chord: chord)
 		})
     }
 }
 
-struct NoteView_Previews: PreviewProvider {
+struct ChordView_Previews: PreviewProvider {
     static var previews: some View {
-		NoteView(chordString: "SI DO", song: Song.example)
+		ChordView(chordString: "SI DO", song: Song.example)
     }
 }

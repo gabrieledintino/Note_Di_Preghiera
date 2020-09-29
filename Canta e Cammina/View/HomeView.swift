@@ -9,12 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     let songs: [Song] = Song.allSongsOrdered
-//	@EnvironmentObject var favorites: Favorites
+	@EnvironmentObject var favorites: Favorites
     @EnvironmentObject var recentlyPlayed: RecentlyPlayedSongs
+    @EnvironmentObject var playlists: Playlists
 	@State private var searchText = ""
     @State private var showRecentlyPlayed = false
     @State private var showCategories = false
     @State private var showPlaylists = false
+    @State private var showAddPlaylist = false
     let rows: [GridItem] = [
         GridItem(.flexible(minimum: 20, maximum: 40), spacing: 5),
         GridItem(.flexible(minimum: 20, maximum: 40), spacing: 5),
@@ -27,21 +29,22 @@ struct HomeView: View {
 					.padding()
 
 				
-				List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
-					NavigationLink(destination: SongView(song)) {
-						VStack(alignment: .leading) {
-							Text(song.title)
-								.font(.headline)
-						}.layoutPriority(1)
-						
-//						if self.favorites.contains(song) {
-//							Spacer()
-//							Image(systemName: "heart.fill")
-//							.accessibility(label: Text("This is a favorite song"))
-//								.foregroundColor(.red)
-//						}
-					}
-				}
+                List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
+                    NavigationLink(destination: SongView(song)) {
+                        VStack(alignment: .leading) {
+                            Text(song.title)
+                                .font(.headline)
+                        }.layoutPriority(1)
+                        
+                        if self.favorites.contains(song) {
+                            Spacer()
+                            Image(systemName: "heart.fill")
+                                .accessibility(label: Text("This is a favorite song"))
+                                .foregroundColor(.red)
+                                .padding(.horizontal, 10)
+                        }
+                    }
+                }
 //				.frame(maxHeight: 500)
 				
 				Spacer()
@@ -132,17 +135,32 @@ struct HomeView: View {
                                     .scaleEffect(showPlaylists ? 1.2 : 1)
                                     .padding()
                             }
+                            Spacer()
+                            Button(action: {
+                                self.showAddPlaylist = true
+                            }, label: {
+                                HStack {
+                                    Text("Aggiungi scaletta")
+                                    Image(systemName: "plus")
+                                }
+                            })
+                            .padding(.horizontal)
+                        }
+                        .sheet(isPresented: $showAddPlaylist) {
+                            AddPlaylistView()
                         }
 
                         if showPlaylists {
                             ScrollView(.horizontal, showsIndicators: false) {
-                                HStack {
-                                    ForEach(0..<6) {_ in
-                                        Rectangle()
-                                            .foregroundColor(.red)
-                                            .frame(width: 200, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                HStack(spacing: 0) {
+                                    ForEach(playlists.getPlaylists(), id: \.self) {playlist in
+                                        NavigationLink(destination: PlaylistView(playlistName: playlist)) {
+                                            TileView(name: playlist)
+                                                .frame(minWidth: 150)
+                                        }
                                     }
                                 }
+                                .frame(maxHeight: 40)
                             }
                         }
 					}
