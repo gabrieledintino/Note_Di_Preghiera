@@ -7,16 +7,41 @@
 
 import SwiftUI
 
+enum FilterSongs {
+    case all, favorites
+}
+
+enum SortOrder {
+    case alphabetical, none
+}
+
 struct HomeView: View {
-    let songs: [Song] = Song.allSongsOrdered
+//    let songs: [Song] = Song.allSongsOrdered
+    @State private var filterSongs = false
+    var songs: [Song] {
+        let startSongs = Song.allSongsOrdered
+//        switch filterSongs {
+//            case .all:
+//                return startSongs
+//            case .favorites:
+//                return startSongs.filter { self.favorites.contains($0) }
+//        }
+        if filterSongs {
+            return startSongs.filter { self.favorites.contains($0) }
+        } else {
+            return startSongs
+        }
+//        return songs.filter { filterSongs ? self.favorites.contains($0) : true }
+    }
 	@EnvironmentObject var favorites: Favorites
     @EnvironmentObject var recentlyPlayed: RecentlyPlayedSongs
     @EnvironmentObject var playlists: Playlists
 	@State private var searchText = ""
     @State private var showRecentlyPlayed = false
     @State private var showCategories = false
-    @State private var showPlaylists = false
+    @State private var showPlaylists = true
     @State private var showAddPlaylist = false
+    @State private var showActionSheet = false
     let rows: [GridItem] = [
         GridItem(.flexible(minimum: 20, maximum: 40), spacing: 5),
         GridItem(.flexible(minimum: 20, maximum: 40), spacing: 5),
@@ -158,6 +183,16 @@ struct HomeView: View {
                                             TileView(name: playlist)
                                                 .frame(minWidth: 150)
                                         }
+                                        .contextMenu(menuItems: {
+                                            Button(action: {
+                                                self.showActionSheet.toggle()
+                                                    }) {
+                                                        Text("Red")
+                                                    }
+                                        })
+                                        .popover(isPresented: $showActionSheet, attachmentAnchor: .point(.top), arrowEdge: .bottom) {
+                                            DetailChordView(chord: Chord.si)
+                                        }
                                     }
                                 }
                                 .frame(maxHeight: 40)
@@ -167,7 +202,7 @@ struct HomeView: View {
                     Spacer()
 				}
 			}
-
+            .navigationBarItems(trailing: Button("Filtra preferiti", action: { self.filterSongs.toggle() }))
 			.navigationTitle("Canta e Cammina 2.0")
 			
 			

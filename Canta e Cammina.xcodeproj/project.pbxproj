@@ -25,12 +25,14 @@
 		467F0F2424F929D200AFF644 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F0F2324F929D200AFF644 /* TileView.swift */; };
 		467F0F2624F92A7F00AFF644 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F0F2524F92A7F00AFF644 /* Chord.swift */; };
 		467F0F2824F92FAB00AFF644 /* String-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F0F2724F92FAB00AFF644 /* String-Extensions.swift */; };
+		4681ACC7252A0897007AAE30 /* AddSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4681ACC6252A0897007AAE30 /* AddSongView.swift */; };
 		46C222EC24F15C660026EB81 /* ChordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222EB24F15C660026EB81 /* ChordView.swift */; };
 		46C222EE24F162F30026EB81 /* ChordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222ED24F162F30026EB81 /* ChordsView.swift */; };
 		46C222F024F1D03E0026EB81 /* DetailChordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C222EF24F1D03E0026EB81 /* DetailChordView.swift */; };
 		46C8BA1B250A890200664EA2 /* chords.json in Resources */ = {isa = PBXBuildFile; fileRef = 46C8BA1A250A890200664EA2 /* chords.json */; };
 		46DAEACB2514E8A7008B0526 /* View-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DAEACA2514E8A7008B0526 /* View-Extensions.swift */; };
 		46EC8355250AC46F00A7989A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8354250AC46F00A7989A /* Settings.swift */; };
+		46F81D342528D1730044C772 /* FileManager-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F81D332528D1730044C772 /* FileManager-Extensions.swift */; };
 		E014E9C7250F802F00F4C57D /* Sequence-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E014E9C6250F802F00F4C57D /* Sequence-Extensions.swift */; };
 		E0441FF62523AAF70001440E /* Dictionary-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0441FF52523AAF70001440E /* Dictionary-Extension.swift */; };
 		E06E6082251B950B006B548D /* RecentlyPlayedSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06E6081251B950B006B548D /* RecentlyPlayedSongs.swift */; };
@@ -63,12 +65,14 @@
 		467F0F2324F929D200AFF644 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		467F0F2524F92A7F00AFF644 /* Chord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		467F0F2724F92FAB00AFF644 /* String-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extensions.swift"; sourceTree = "<group>"; };
+		4681ACC6252A0897007AAE30 /* AddSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongView.swift; sourceTree = "<group>"; };
 		46C222EB24F15C660026EB81 /* ChordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordView.swift; sourceTree = "<group>"; };
 		46C222ED24F162F30026EB81 /* ChordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordsView.swift; sourceTree = "<group>"; };
 		46C222EF24F1D03E0026EB81 /* DetailChordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChordView.swift; sourceTree = "<group>"; };
 		46C8BA1A250A890200664EA2 /* chords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chords.json; sourceTree = SOURCE_ROOT; };
 		46DAEACA2514E8A7008B0526 /* View-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Extensions.swift"; sourceTree = "<group>"; };
 		46EC8354250AC46F00A7989A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		46F81D332528D1730044C772 /* FileManager-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Extensions.swift"; sourceTree = "<group>"; };
 		E014E9C6250F802F00F4C57D /* Sequence-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Extensions.swift"; sourceTree = "<group>"; };
 		E0441FF52523AAF70001440E /* Dictionary-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary-Extension.swift"; sourceTree = "<group>"; };
 		E06E6081251B950B006B548D /* RecentlyPlayedSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedSongs.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				E0FD12AB2512061E0057654C /* ListView.swift */,
 				E0FB360C2520FEEE002EB5CF /* AddPlaylistView.swift */,
 				E0FB3611252103EC002EB5CF /* PlaylistView.swift */,
+				4681ACC6252A0897007AAE30 /* AddSongView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				E014E9C6250F802F00F4C57D /* Sequence-Extensions.swift */,
 				467F0F2724F92FAB00AFF644 /* String-Extensions.swift */,
 				46DAEACA2514E8A7008B0526 /* View-Extensions.swift */,
+				46F81D332528D1730044C772 /* FileManager-Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4681ACC7252A0897007AAE30 /* AddSongView.swift in Sources */,
 				465E634924F0273300AF3933 /* Favorites.swift in Sources */,
 				460C405024EF23BE003B7760 /* Canta_e_Cammina.xcdatamodeld in Sources */,
 				E014E9C7250F802F00F4C57D /* Sequence-Extensions.swift in Sources */,
@@ -285,6 +292,7 @@
 				E06E6082251B950B006B548D /* RecentlyPlayedSongs.swift in Sources */,
 				46C222EC24F15C660026EB81 /* ChordView.swift in Sources */,
 				465E634724F026D900AF3933 /* WelcomeView.swift in Sources */,
+				46F81D342528D1730044C772 /* FileManager-Extensions.swift in Sources */,
 				460C404624EF23BD003B7760 /* ContentView.swift in Sources */,
 				460C404424EF23BD003B7760 /* Canta_e_CamminaApp.swift in Sources */,
 				465E634C24F0302800AF3933 /* SongView.swift in Sources */,

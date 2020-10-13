@@ -1,33 +1,32 @@
 //
-//  EditPlaylistView.swift
+//  TestView.swift
 //  Canta e Cammina
 //
-//  Created by Gabriele on 27/09/2020.
+//  Created by Gabriele D'Intino on 04/10/2020.
 //
 
 import SwiftUI
 
-struct AddPlaylistView: View {
+struct AddSongView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var favorites: Favorites
     @EnvironmentObject var playlists: Playlists
-    @State private var playlistName = ""
-    @State private var songs = Song.allSongsOrdered
+    var songs: [Song] {
+        Song.allSongsOrdered.filter { !playlistContent.contains($0) }
+    }
+    @State private var songsToAdd: [Song] = []
     @State private var searchText = ""
-    @State private var playlistContent: [Song] = []
-
+    var playlistName: String
+    var playlistContent: [Song] {
+        playlists.getPlaylistSongs(playlistName: playlistName)
+    }
     
     var body: some View {
         VStack {
-            TextField("Inserisci il nome della scaletta", text: $playlistName)
-                .padding(7)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-            
-            Divider()
-            
+            HStack {
+                Spacer()
+                Button("Fatto", action: dismiss)
+            }
             SearchBar(text: $searchText)
                 .padding(.top, 10)
 
@@ -47,28 +46,29 @@ struct AddPlaylistView: View {
                         .padding(.horizontal, 5)
                 }
                 
-                if let index = playlistContent.firstIndex(of: song) {
+                if let index = songsToAdd.firstIndex(of: song) {
                     Image(systemName: "\(index + 1).circle")
                         .foregroundColor(.blue)
                     Text("\(index + 1)")
                         .foregroundColor(.blue)
+
                 }
                 
                 Button(action: {
-                        if playlistContent.contains(song) {
-                                playlistContent.removeElement(element: song)
+                        if songsToAdd.contains(song) {
+                                songsToAdd.removeElement(element: song)
                         } else {
-                                playlistContent.append(song)
+                                songsToAdd.append(song)
                         }
                 }, label: {
-                    Image(systemName: playlistContent.contains(song) ? "minus.circle.fill" : "plus.circle.fill")
+                    Image(systemName: songsToAdd.contains(song) ? "minus.circle.fill" : "plus.circle.fill")
                         .animation(.default)
-                        .foregroundColor(playlistContent.contains(song) ? Color.red : Color.green)
+                        .foregroundColor(songsToAdd.contains(song) ? Color.red : Color.green)
                 })
                 .buttonStyle(PlainButtonStyle())
             }
             Button(action: {
-                playlists.createPlaylist(playlistName: playlistName, songs: playlistContent)
+                playlists.addToPlaylist(playlistName: playlistName, songs: songsToAdd)
                 self.presentationMode.wrappedValue.dismiss()
             }, label: {
                 HStack {
@@ -76,20 +76,31 @@ struct AddPlaylistView: View {
                         .padding(.horizontal)
                     Image(systemName: "checkmark")
                 }
-                .padding()
+                .padding(10)
             })
             .foregroundColor(.white)
-            .background(playlistName == "" ? Color.gray : Color.blue)
+            .background(Color.blue)
             .cornerRadius(8)
-            .disabled(playlistName == "")
         }
         .padding()
-        .navigationTitle("\(playlistName)")
+//        .frame(maxWidth: .infinity)
+//        .background(VisualEffectView(effect: UIBlurEffect(style: .dark)))
+//        .edgesIgnoringSafeArea(.vertical)
+    }
+    
+    func dismiss() {
+        presentationMode.wrappedValue.dismiss()
     }
 }
+    
+struct VisualEffectView: UIViewRepresentable {
+    var effect: UIVisualEffect?
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
+}
 
-struct AddPlaylistView_Previews: PreviewProvider {
+struct AddSongView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPlaylistView()
+        AddSongView(playlistName: "Prova")
     }
 }
