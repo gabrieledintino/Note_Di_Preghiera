@@ -38,17 +38,11 @@ struct AddSongView: View {
                 
                 Spacer()
 
-                if self.favorites.contains(song) {
-                    Spacer()
-                    Image(systemName: "heart.fill")
-                        .accessibility(label: Text("This is a favorite song"))
-                        .foregroundColor(.red)
-                        .padding(.horizontal, 5)
-                }
+                FavoriteHeart(song: song)
                 
                 if let index = songsToAdd.firstIndex(of: song) {
-                    Image(systemName: "\(index + 1).circle")
-                        .foregroundColor(.blue)
+//                    Image(systemName: "\(index + 1).circle")
+//                        .foregroundColor(.blue)
                     Text("\(index + 1)")
                         .foregroundColor(.blue)
 

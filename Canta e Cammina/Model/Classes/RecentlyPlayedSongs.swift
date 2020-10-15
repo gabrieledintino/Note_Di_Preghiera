@@ -12,7 +12,7 @@ class RecentlyPlayedSongs: ObservableObject {
     private var recentlyPlayedSongs: [Song]
     
     static let saveKey = "LastPlayed"
-    static private var maxArraySize = 5
+    static private var maxArraySize = 10
     
     init() {
         let decoder = JSONDecoder()

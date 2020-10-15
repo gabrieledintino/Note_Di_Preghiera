@@ -56,36 +56,22 @@ struct TileView: View {
 //    }
     
     var name: String
+    var fontStyle: Font = .title2
 
 	var body: some View {
 		ZStack {
 			Rectangle()
-//                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .cornerRadius(10)
             LinearGradient(gradient: Gradient(colors: [.yellow, .red]), startPoint: .top, endPoint: .bottom)
-//				.clipShape(RoundedRectangle(cornerRadius: 10))
                 .cornerRadius(10)
             Text(name)
                 .foregroundColor(.white)
                 .fontWeight(.bold)
-                .font(.headline)
+                .font(fontStyle)
                 .lineLimit(2)
                 .allowsTightening(true)
-//			HStack {
-//				VStack(alignment: .leading) {
-//					Text("\(item.name)")
-//						.font(.headline)
-//						.foregroundColor(.white)
-//					Text("\(item.description)")
-//						.foregroundColor(.white)
-//				}
-//				.frame(maxWidth: 200, maxHeight: 100)
-//				Spacer()
-//				Text("Completed \(item.count) times")
-//					.foregroundColor(.white)
-//			}
 		}
-        .padding(.leading, 10)
+//        .padding(.leading, 10)
 	}
 }
 //

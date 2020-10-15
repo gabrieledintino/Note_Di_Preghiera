@@ -44,12 +44,7 @@ struct PlaylistView: View {
                                     .font(.headline)
                             }.layoutPriority(1)
                             
-                            if self.favorites.contains(song) {
-                                Spacer()
-                                Image(systemName: "heart.fill")
-                                .accessibility(label: Text("This is a favorite song"))
-                                    .foregroundColor(.red)
-                            }
+                            FavoriteHeart(song: song)
                         }
                     }
                     .onDelete(perform: deleteItems)
@@ -90,7 +85,7 @@ struct PlaylistView: View {
     }
     
     func changePlaylistName(newName: String) {
-        playlists.renamePlaylist(oldName: playlistName, newName: newName)
+        playlists.renamePlaylist(playlistName: playlistName, newName: newName)
     }
     
 }

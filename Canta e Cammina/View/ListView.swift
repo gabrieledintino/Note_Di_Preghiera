@@ -24,7 +24,6 @@ struct ListView: View {
             SearchBar(text: $searchText)
                 .padding()
                 
-            
             List(filteredSongs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
                 NavigationLink(destination: SongView(song)) {
                     HStack {
@@ -34,20 +33,16 @@ struct ListView: View {
                         }.layoutPriority(1)
                     }
                     
-                    if self.favorites.contains(song) {
-                        Spacer()
-                        Image(systemName: "heart.fill")
-                        .accessibility(label: Text("This is a favorite song"))
-                            .foregroundColor(.red)
-                    }
+                    FavoriteHeart(song: song)
                 }
             }
         }
+        .navigationTitle("\(category)")
     }
 }
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(songs: [Song.example], category: "Alleluia")
+        ListView(songs: [Song.example], category: "Alleluia").environmentObject(Favorites())
     }
 }
