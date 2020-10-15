@@ -8,6 +8,7 @@
 import Foundation
 
 struct Song: Codable, Hashable {
+    
 	let title: String
 	let intro: String?
 //	let notesAndLyrics: [String]

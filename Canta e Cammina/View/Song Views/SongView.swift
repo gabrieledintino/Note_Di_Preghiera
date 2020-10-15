@@ -85,7 +85,7 @@ struct SongView: View {
 		.navigationViewStyle(StackNavigationViewStyle())
 		.background(EmptyView()
 						.popover(isPresented: $showingSettings, attachmentAnchor: .point(.topTrailing), arrowEdge: .top) {
-							SettingsView(song: song)
+							SongSettingsView(song: song)
 						})
     }
 	
@@ -100,12 +100,6 @@ struct SongView: View {
 			return Text(song.lyrics[index])
 		}
 	}
-    
-//    func tightenedText(string: String) -> some View {
-//        return Text(string)
-//            .lineLimit(1)
-//            .allowsTightening(true)
-//    }
 }
 
 struct SongView_Previews: PreviewProvider {

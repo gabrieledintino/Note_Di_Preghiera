@@ -13,6 +13,7 @@ struct Canta_e_CamminaApp: App {
 	@ObservedObject var favorites = Favorites()
 	@ObservedObject var settings = Settings()
     @ObservedObject var recentlyPlayed = RecentlyPlayedSongs()
+//    @ObservedObject var playlists = Playlists()
     @ObservedObject var playlists = Playlists()
 
     var body: some Scene {
