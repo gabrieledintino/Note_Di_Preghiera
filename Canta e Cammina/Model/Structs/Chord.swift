@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Chord: Codable, Hashable {
-	let chordName: String
+    let chordName: String
 	let image: String
 	let description: String
 	
@@ -40,45 +40,45 @@ struct Chord: Codable, Hashable {
 	
 	static func getCorrectChords(chord: String) -> [Chord] {
 		switch chord {
-		case let x where x.contains("-") && x.contains("2"):
+		case _ where chord.contains("-") && chord.contains("2"):
 			return allChords[8]
-		case let x where x.contains("-") && x.contains("3"):
+		case _ where chord.contains("-") && chord.contains("3"):
 			return allChords[9]
-		case let x where x.contains("-") && x.contains("4"):
+		case _ where chord.contains("-") && chord.contains("4"):
 			return allChords[10]
-		case let x where x.contains("-") && x.contains("5"):
+		case _ where chord.contains("-") && chord.contains("5"):
 			return allChords[11]
-		case let x where x.contains("-") && x.contains("6"):
+		case _ where chord.contains("-") && chord.contains("6"):
 			return allChords[12]
-		case let x where x.contains("-") && x.contains("7"):
+		case _ where chord.contains("-") && chord.contains("7"):
 			return allChords[13]
-		case let x where x.contains("-"):
+        case _ where chord.contains("-"):
 			return allChords[7]
-        case let x where x.contains("+") && x.contains("2"):
+        case _ where chord.contains("+") && chord.contains("2"):
             return allChords[15]
-        case let x where x.contains("+") && x.contains("3"):
+        case _ where chord.contains("+") && chord.contains("3"):
             return allChords[16]
-        case let x where x.contains("+") && x.contains("4"):
+        case _ where chord.contains("+") && chord.contains("4"):
             return allChords[17]
-        case let x where x.contains("+") && x.contains("5"):
+        case _ where chord.contains("+") && chord.contains("5"):
             return allChords[18]
-        case let x where x.contains("+") && x.contains("6"):
+        case _ where chord.contains("+") && chord.contains("6"):
             return allChords[19]
-        case let x where x.contains("+") && x.contains("7"):
+        case _ where chord.contains("+") && chord.contains("7"):
             return allChords[20]
-        case let x where x.contains("+"):
+        case _ where chord.contains("+"):
             return allChords[14]
-		case let x where x.contains("2"):
+		case _ where chord.contains("2"):
 			return allChords[1]
-		case let x where x.contains("3"):
+		case _ where chord.contains("3"):
 			return allChords[2]
-		case let x where x.contains("4"):
+		case _ where chord.contains("4"):
 			return allChords[3]
-		case let x where x.contains("5"):
+		case _ where chord.contains("5"):
 			return allChords[4]
-		case let x where x.contains("6"):
+		case _ where chord.contains("6"):
 			return allChords[5]
-		case let x where x.contains("7"):
+		case _ where chord.contains("7"):
 			return allChords[6]
 		default:
 			return allChords[0]
@@ -88,8 +88,8 @@ struct Chord: Codable, Hashable {
 	static func obtainChord(chord: String, offset: Int) -> Chord {
 //		var suffix = note[note.count-2...note.count-1]
 		let prefix = chord[0..<2]						// get the first two digits of the chord to extrapolate the chord to be used if proper chord can't be identified
-		let chordArray = getCorrectChords(chord: chord)
-        if let chordBaseIndex = chordArray.firstIndex(where: { $0.chordName == chord.uppercased() }) {
+        let chordArray = getCorrectChords(chord: chord)
+        if let chordBaseIndex = chordArray.firstIndex(where: { $0.chordName.uppercased() == chord.uppercased() }) {
 			return chordArray[(chordBaseIndex + offset) % chordArray.count]
 		} else {
 			let defaultChordBaseIndex = getDefaultChordIndex(prefix: prefix)
@@ -98,7 +98,7 @@ struct Chord: Codable, Hashable {
 	}
 	
 	private static func getDefaultChordIndex(prefix: String) -> Int {
-		let chord = ChordBaseType(rawValue: prefix)
+        let chord = ChordBaseType(rawValue: prefix.uppercased())
 		switch chord {						//
 		case .DO:
 			return Chord.allChords[0].firstIndex(of: Self.do)!

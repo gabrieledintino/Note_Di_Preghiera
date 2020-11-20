@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class PlaylistClass: Codable, Identifiable {
+class Playlist: Codable, Identifiable {
     
     init(name: String, songs: [Song]) {
         self.id = UUID()

@@ -8,14 +8,14 @@
 import SwiftUI
 
 class Playlists: ObservableObject {
-    // define a dictionary with playlist name and the songs of such playlist
-    @Published private(set) var playlists: [PlaylistClass]
+    // define an array with the playlists
+    @Published private(set) var playlists: [Playlist]
     
     // the key we're using to read/write in UserDefaults
     static private let saveKey = "Playlists"
     
     init() {
-        if let data: [PlaylistClass] = FileManager().loadFromApplicationSupport(withName: Self.saveKey) {
+        if let data: [Playlist] = FileManager().loadFromApplicationSupport(withName: Self.saveKey) {
             self.playlists = data
             return
         }
@@ -27,7 +27,7 @@ class Playlists: ObservableObject {
         FileManager().saveToApplicationSupport(playlists, withName: Self.saveKey)
     }
     
-    func getPlaylists() -> [PlaylistClass] {
+    func getPlaylists() -> [Playlist] {
         return self.playlists
     }
     
@@ -44,7 +44,7 @@ class Playlists: ObservableObject {
     
     func createPlaylist(playlistName: String, songs: [Song]) {
         objectWillChange.send()
-        let newPlaylist = PlaylistClass(name: playlistName, songs: songs)
+        let newPlaylist = Playlist(name: playlistName, songs: songs)
         playlists.append(newPlaylist)
         save()
     }

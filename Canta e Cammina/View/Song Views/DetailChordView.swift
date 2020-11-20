@@ -24,18 +24,19 @@ struct DetailChordView: View {
 				.resizable()
 				.scaledToFit()
                 .frame(width: 300, height: 300, alignment: .center)
+                .background(Color.white)
+                .cornerRadius(8)
 			
 			Text(chord.chordName)
 				.font(.largeTitle)
+                .foregroundColor(.accentColor)
 			Text("Qui andrà una descrizione")
             Spacer()
 		}
-        .background(Color.white)
         .padding()
         .if(UIDevice.current.userInterfaceIdiom == .pad) {
             $0.frame(width: 400, height: 450, alignment: .center)
         }
-		
     }
     
     func dismiss() {

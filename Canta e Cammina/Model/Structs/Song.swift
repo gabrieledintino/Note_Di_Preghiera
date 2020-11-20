@@ -11,14 +11,15 @@ struct Song: Codable, Hashable {
     
 	let title: String
 	let intro: String?
-//	let notesAndLyrics: [String]
-    let notesAndLyrics: String
-
+	let notesAndLyrics: [String]
+//    let notesAndLyrics: String
 	let categories: [String]
 	let otherNotes: String?
+    let link: String?
 	
-	
-    static let allSongs: [Song] = Bundle.main.decode("songs2.json")
+    
+    static let allSongs: [Song] = Bundle.main.decode("songs.json")
+//    static let allSongs: [Song] = Bundle.main.decode("songs2.json")
     static let allSongsOrdered: [Song] = allSongs.sorted {$0.title < $1.title}                      // create a variable with all the decoded songs.
 	static let example = allSongs[0]
     
@@ -26,49 +27,51 @@ struct Song: Codable, Hashable {
     
     
 	
-//	var notes: [[String]] {                                                                         // function to get the chords of the song
-//		var temp: [String] = []
-//		_ = stride(from: 0, through: notesAndLyrics.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the chords and storing them in an array
-//			temp.append(notesAndLyrics[index])
-//		}
-//		return temp.map { obtainNotes(string: $0) }                                                 // map the obtained array to have the different notes ready to be elaborated singularly
-//	}
+	var notes: [[String]] {                                                                         // function to get the chords of the song
+		var temp: [String] = []
+		_ = stride(from: 0, through: notesAndLyrics.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the chords and storing them in an array
+			temp.append(notesAndLyrics[index])
+		}
+		return temp.map { getNotes(string: $0) }                                                 // map the obtained array to have the different notes ready to be elaborated singularly
+	}
+
+	var lyrics: [String] {                                                                          // function to get the lyrics of the song
+		var temp: [String] = []
+		_ = stride(from: 1, through: notesAndLyrics.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the lyrics and returning them in an array
+			temp.append(notesAndLyrics[index])
+		}
+		return temp
+	}
+    
+    
+//    lazy var lazyNotes: [[String]] = getNoteLines()
 //
-//	var lyrics: [String] {                                                                          // function to get the lyrics of the song
-//		var temp: [String] = []
-//		_ = stride(from: 1, through: notesAndLyrics.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the lyrics and returning them in an array
-//			temp.append(notesAndLyrics[index])
-//		}
-//		return temp
-//	}
-    lazy var lazyNotes: [[String]] = getNoteLines()
-    
-    func getNoteLines() -> [[String]] {
-        let lines = notesAndLyrics.components(separatedBy: .newlines)
-        var temp: [String] = []
-        _ = stride(from: 0, through: lines.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the chords and storing them in an array
-            temp.append(lines[index])
-        }
-        return temp.map { getNotes(string: $0) }
-    }
-    
-    var notes: [[String]] {                                                                         // function to get the chords of the song
-        let lines = notesAndLyrics.components(separatedBy: .newlines)
-        var temp: [String] = []
-        _ = stride(from: 0, through: lines.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the chords and storing them in an array
-            temp.append(lines[index])
-        }
-        return temp.map { getNotes(string: $0) }                                                 // map the obtained array to have the different notes ready to be elaborated singularly
-    }
-    
-    var lyrics: [String] {                                                                          // function to get the lyrics of the song
-        let lines = notesAndLyrics.components(separatedBy: .newlines)
-        var temp: [String] = []
-        _ = stride(from: 1, through: lines.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the lyrics and returning them in an array
-            temp.append(lines[index])
-        }
-        return temp
-    }
+//    func getNoteLines() -> [[String]] {
+//        let lines = notesAndLyrics.components(separatedBy: .newlines)
+//        var temp: [String] = []
+//        _ = stride(from: 0, through: lines.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the chords and storing them in an array
+//            temp.append(lines[index])
+//        }
+//        return temp.map { getNotes(string: $0) }
+//    }
+//
+//    var notes: [[String]] {                                                                         // function to get the chords of the song
+//        let lines = notesAndLyrics.components(separatedBy: .newlines)
+//        var temp: [String] = []
+//        _ = stride(from: 0, through: lines.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the chords and storing them in an array
+//            temp.append(lines[index])
+//        }
+//        return temp.map { getNotes(string: $0) }                                                 // map the obtained array to have the different notes ready to be elaborated singularly
+//    }
+//
+//    var lyrics: [String] {                                                                          // function to get the lyrics of the song
+//        let lines = notesAndLyrics.components(separatedBy: .newlines)
+//        var temp: [String] = []
+//        _ = stride(from: 1, through: lines.count - 1, by: 2).map { index in                // map the notesAndLyrics variable every two lines, to get only the lyrics and returning them in an array
+//            temp.append(lines[index])
+//        }
+//        return temp
+//    }
 	
 	
 	func getNotes(string: String) -> [String] {                                                  // function to separate the chords of the song

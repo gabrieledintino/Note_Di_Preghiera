@@ -13,8 +13,8 @@ struct Canta_e_CamminaApp: App {
 	@ObservedObject var favorites = Favorites()
 	@ObservedObject var settings = Settings()
     @ObservedObject var recentlyPlayed = RecentlyPlayedSongs()
-//    @ObservedObject var playlists = Playlists()
     @ObservedObject var playlists = Playlists()
+    @ObservedObject var userNotes = UserNotes()
 
     var body: some Scene {
         WindowGroup {
@@ -23,6 +23,7 @@ struct Canta_e_CamminaApp: App {
 				.environmentObject(settings)
                 .environmentObject(recentlyPlayed)
                 .environmentObject(playlists)
+                .environmentObject(userNotes)
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

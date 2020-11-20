@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PlaylistsView: View {
     @EnvironmentObject var playlists: Playlists
-    @State private var showRenamePlaylist: PlaylistClass? = nil
+    @State private var showRenamePlaylist: Playlist? = nil
     @State private var showAddPlaylist = false
-    @State private var showDeletePlaylist: PlaylistClass? = nil
+    @State private var showDeletePlaylist: Playlist? = nil
 
     let songs = Song.allSongsOrdered
     
@@ -27,9 +27,19 @@ struct PlaylistsView: View {
                     LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
                         ForEach(playlists.getPlaylists(), id: \.id) { playlist in
                             NavigationLink(destination: PlaylistView(playlistName: playlist.getName())) {
-                                TileView(name: playlist.getName())
-                                    .frame(height: 60, alignment: .center)
-                            }
+//                                TileView(name: playlist.getName())
+//                                    .frame(height: 60, alignment: .center)
+                                GroupBox(
+                                    label: Label("", systemImage: "folder")
+                                        .foregroundColor(.red)
+                                        .font(.callout)
+                                        .padding(.bottom, 1)
+                                ) {
+                                    Text(playlist.getName())
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                } .groupBoxStyle(CardGroupBoxStyle())
+                            }.buttonStyle(PlainButtonStyle())
                             .contextMenu(menuItems: {
                                 Button(action: {
                                     self.showRenamePlaylist = playlist
@@ -65,7 +75,7 @@ struct PlaylistsView: View {
                 AddPlaylistView().environmentObject(playlists)
             }
             .actionSheet(item: $showDeletePlaylist) { playlist in
-                ActionSheet(title: Text("Sei sicuro di voler eliminare la scaletta?"), message: Text("Conferma"), buttons: [
+                ActionSheet(title: Text("Sei sicuro di voler eliminare la scaletta \"\(playlist.getName())\"?"), message: Text("Conferma"), buttons: [
                     .destructive(Text("Elimina"), action: { self.deletePlaylist(playlistName: playlist.getName()) }),
                     .cancel()
                 ])

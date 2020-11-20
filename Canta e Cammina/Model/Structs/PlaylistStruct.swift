@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Playlist: Codable, Hashable, Identifiable {
+struct PlaylistStruct: Codable, Hashable, Identifiable {
     init(name: String, songs: [Song]) {
         self.id = UUID()
         self.name = name
