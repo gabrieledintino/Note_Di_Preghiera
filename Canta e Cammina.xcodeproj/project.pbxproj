@@ -50,7 +50,6 @@
 		E0CD3EE425377AFC009454B9 /* Playlists.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CD3EE325377AFC009454B9 /* Playlists.swift */; };
 		E0DDD3DE251FAD10005BF1B4 /* Playlistsss.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD3DD251FAD10005BF1B4 /* Playlistsss.swift */; };
 		E0DDD3E1251FDCB0005BF1B4 /* Array-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD3E0251FDCB0005BF1B4 /* Array-Extension.swift */; };
-		E0F8CC27251B3E29006ED67A /* songs2.json in Resources */ = {isa = PBXBuildFile; fileRef = E0F8CC26251B3E29006ED67A /* songs2.json */; };
 		E0FB360D2520FEEE002EB5CF /* AddPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FB360C2520FEEE002EB5CF /* AddPlaylistView.swift */; };
 		E0FB3612252103EC002EB5CF /* PlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FB3611252103EC002EB5CF /* PlaylistView.swift */; };
 		E0FD12AC2512061E0057654C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD12AB2512061E0057654C /* ListView.swift */; };
@@ -114,7 +113,6 @@
 		E0CD3EE325377AFC009454B9 /* Playlists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlists.swift; sourceTree = "<group>"; };
 		E0DDD3DD251FAD10005BF1B4 /* Playlistsss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlistsss.swift; sourceTree = "<group>"; };
 		E0DDD3E0251FDCB0005BF1B4 /* Array-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array-Extension.swift"; sourceTree = "<group>"; };
-		E0F8CC26251B3E29006ED67A /* songs2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs2.json; sourceTree = "<group>"; };
 		E0FB360C2520FEEE002EB5CF /* AddPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistView.swift; sourceTree = "<group>"; };
 		E0FB3611252103EC002EB5CF /* PlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistView.swift; sourceTree = "<group>"; };
 		E0FD12AB2512061E0057654C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				E06E6085251BAFF0006B548D /* Classes */,
 				E06E6088251BB03A006B548D /* Structs */,
 				465E634224F00AEA00AF3933 /* songs.json */,
-				E0F8CC26251B3E29006ED67A /* songs2.json */,
 				46C8BA1A250A890200664EA2 /* chords.json */,
 				460C404E24EF23BE003B7760 /* Canta_e_Cammina.xcdatamodeld */,
 			);
@@ -373,7 +370,6 @@
 			files = (
 				465E634324F00AEA00AF3933 /* songs.json in Resources */,
 				460C404B24EF23BE003B7760 /* Preview Assets.xcassets in Resources */,
-				E0F8CC27251B3E29006ED67A /* songs2.json in Resources */,
 				46C8BA1B250A890200664EA2 /* chords.json in Resources */,
 				460C404824EF23BE003B7760 /* Assets.xcassets in Resources */,
 			);

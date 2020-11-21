@@ -1551,5 +1551,79 @@
 			"image": "SI7+",
 			"description": "Descrizione del SI7+"
 		}
+	],
+	
+	[
+		{
+			"chordName": "DOdim",
+			"image": "DOdim",
+			"description": "Descrizione del DOdim"
+		},
+	
+		{
+			"chordName": "DO#dim",
+			"image": "DO#dim",
+			"description": "Descrizione del DO#dim"
+		},
+	
+		{
+			"chordName": "REdim",
+			"image": "REdim",
+			"description": "Descrizione del REdim"
+		},
+	
+		{
+			"chordName": "MIbdim",
+			"image": "MIbdim",
+			"description": "Descrizione del MIbdim"
+		},
+	
+		{
+			"chordName": "MIdim",
+			"image": "MIdim",
+			"description": "Descrizione del MIdim"
+		},
+	
+		{
+			"chordName": "FAdim",
+			"image": "FAdim",
+			"description": "Descrizione del FAdim"
+		},
+	
+		{
+			"chordName": "FA#dim",
+			"image": "FA#dim",
+			"description": "Descrizione del FA#dim"
+		},
+	
+		{
+			"chordName": "SOLdim",
+			"image": "SOLdim",
+			"description": "Descrizione del SOLdim"
+		},
+	
+		{
+			"chordName": "SOL#dim",
+			"image": "SOL#dim",
+			"description": "Descrizione del SOL#dim"
+		},
+	
+		{
+			"chordName": "LAdim",
+			"image": "LAdim",
+			"description": "Descrizione del LAdim"
+		},
+	
+		{
+			"chordName": "SIbdim",
+			"image": "SIbdim",
+			"description": "Descrizione del SIbdim"
+		},
+	
+		{
+			"chordName": "SIdim",
+			"image": "SIdim",
+			"description": "Descrizione del SIdim"
+		}
 	]
 ]
