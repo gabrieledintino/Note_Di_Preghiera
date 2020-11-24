@@ -31,15 +31,16 @@ struct PlaylistsView: View {
 //                                    .frame(height: 60, alignment: .center)
                                 GroupBox(
                                     label: Label("", systemImage: "folder")
-                                        .foregroundColor(.red)
-                                        .font(.callout)
-                                        .padding(.bottom, 1)
+                                            .foregroundColor(.red)
+                                            .font(.callout)
+                                            .padding(.bottom, 1)
                                 ) {
                                     Text(playlist.getName())
                                         .font(.title3)
                                         .fontWeight(.bold)
                                 } .groupBoxStyle(CardGroupBoxStyle())
-                            }.buttonStyle(PlainButtonStyle())
+                            }
+                            .buttonStyle(PlainButtonStyle())                // this is needed to allow tapping on the "plus" sign
                             .contextMenu(menuItems: {
                                 Button(action: {
                                     self.showRenamePlaylist = playlist
@@ -54,33 +55,37 @@ struct PlaylistsView: View {
                                     Text("Elimina")
                                     Image(systemName: "trash")
                                         }
-
                             })
+                            .actionSheet(item: $showDeletePlaylist) { playlist in
+                                ActionSheet(title: Text("Sei sicuro di voler eliminare la scaletta \"\(playlist.getName())\"?"), message: Text("Conferma"), buttons: [
+                                    .destructive(Text("Elimina"), action: { self.deletePlaylist(playlistName: playlist.getName()) }),
+                                    .cancel()
+                                ])
+                            }
                         }
 
                     }.animation(.default)
                 }
                 .padding()
             }
-            .navigationBarItems(trailing: Button(action: {
-                self.showAddPlaylist = true
-            }, label: {
-                HStack {
-                    Text("Aggiungi scaletta")
-                    Image(systemName: "plus")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {                                            //MARK: Add playlist
+                            withAnimation(.default) {
+                                self.showAddPlaylist = true
+                            }
+                        } label: {
+                            HStack {
+                                Text("Aggiungi scaletta")
+                                Image(systemName: "plus")
+                            }
+                    }
                 }
-            }))
+            }
             .navigationTitle("Scalette")
             .sheet(isPresented: $showAddPlaylist) {
                 AddPlaylistView().environmentObject(playlists)
             }
-            .actionSheet(item: $showDeletePlaylist) { playlist in
-                ActionSheet(title: Text("Sei sicuro di voler eliminare la scaletta \"\(playlist.getName())\"?"), message: Text("Conferma"), buttons: [
-                    .destructive(Text("Elimina"), action: { self.deletePlaylist(playlistName: playlist.getName()) }),
-                    .cancel()
-                ])
-            }
-            
             .background(EmptyView()
                             .sheet(item: $showRenamePlaylist) { playlist in
                                 RenamePlaylistView(oldName: playlist.getName())

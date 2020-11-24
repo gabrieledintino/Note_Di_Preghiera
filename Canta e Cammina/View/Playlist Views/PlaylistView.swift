@@ -23,57 +23,38 @@ struct PlaylistView: View {
 
     var body: some View {
         VStack {
-            ZStack {
-                SearchBar(text: $searchText)
-                if editMode!.wrappedValue.isEditing {
-                    TextField("Modifica il nome della playlist", text: $newName, onCommit: { changePlaylistName(newName: newName)})
-    //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(7)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .padding(.horizontal, 10)
-                        .padding(.bottom, 10)
-                }
-
-                
-                List {
-                    ForEach(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
-                        NavigationLink(destination: SongView(song)) {
-                            VStack(alignment: .leading) {
-                                Text(song.title)
-                                    .font(.headline)
-                            }.layoutPriority(1)
-                            
-                            FavoriteHeart(song: song)
-                        }
-                    }
-                    .onDelete(perform: deleteItems)
-                    .onMove(perform: moveItems)
-                }
-                
-//                if showAddView {
-//                    AddSongView(playlistName: playlistName)
-//                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                }
-            }
+            SearchBar(text: $searchText)
             
+            List {                                              //TODO: refactor this view (also in MainSongListView
+                ForEach(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
+                    NavigationLink(destination: SongView(song)) {
+                        VStack(alignment: .leading) {
+                            Text(song.title)
+                                .font(.headline)
+                        }.layoutPriority(1)
+                        
+                        FavoriteHeart(song: song)
+                    }
+                }
+                .onDelete(perform: deleteItems)
+                .onMove(perform: moveItems)
+            }
         }
         .sheet(isPresented: $showAddView) {
             AddSongView(playlistName: playlistName)
                 .environmentObject(favorites)
         }
         .navigationTitle("\(playlistName)")
-        .navigationBarItems(trailing: HStack(spacing: 10) {
-            Button(action: { withAnimation {
-                self.showAddView.toggle()
-            } }, label: {
-                Image(systemName: "plus")
-            })
-            .disabled(showAddView)
-            
-            EditButton()
-                .disabled(showAddView)
-        })
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: { self.showAddView.toggle() }, label: {
+                    Image(systemName: "plus")
+                })
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                EditButton()
+            }
+        }
     }
     
     func deleteItems(at offsets: IndexSet) {
@@ -92,7 +73,9 @@ struct PlaylistView: View {
 
 struct PlaylistView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaylistView(playlistName: "Prova")
+        PlaylistView(playlistName: "Uno")
+            .environmentObject(Favorites())
+            .environmentObject(Playlists())
     }
 }
 

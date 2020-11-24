@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SongView: View {
 	@EnvironmentObject var favorites: Favorites
-    @EnvironmentObject var settings: Settings
+    @EnvironmentObject var settings: SongSettings
     @EnvironmentObject var recentlyPlayed: RecentlyPlayedSongs
     @EnvironmentObject var userNotes: UserNotes
 	@State private var showingSettings = false
@@ -21,7 +21,6 @@ struct SongView: View {
     
     init(_ newSong: Song) {
         self.song = newSong
-//        self.chords = newSong.getNoteLines()
         self.chords = newSong.notes
     }
 	
@@ -70,7 +69,7 @@ struct SongView: View {
                                         ChordsView(chords: chords[index], song: song)
                                     }
 									obtainText(index: index)
-                                        .lineLimit(2)
+                                        .lineLimit(6)
                                         .allowsTightening(true)
                                         .animation(.spring())
                                         .offset(x: 0, y: -4)
@@ -87,40 +86,73 @@ struct SongView: View {
 //			}
 		.navigationTitle(song.title)
 		.navigationBarTitleDisplayMode(.automatic)
-		.navigationBarItems(trailing:
-								HStack(spacing: 15) {
-									Button {
-										if self.favorites.contains(song) {
-											self.favorites.remove(song)
-										} else {
-											self.favorites.add(song)
-										}
-										} label: {
-											self.favorites.contains(song) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
-										}
-										.foregroundColor(.red)
-									
-                                    Button {
-                                        withAnimation(.default) {
-                                            self.showingUserNoteField.toggle()
-                                        }
-                                    } label: {
-                                        Image(systemName: showingUserNoteField ? "text.bubble.fill" : "text.bubble")
-//                                        Text("Impostazioni")
-                                    }
-                                    
-									Button {
-										self.showingSettings = true
-									} label: {
-										Image(systemName: "music.note.list")
-//										Text("Impostazioni")
-									}
-								})
-		.navigationViewStyle(StackNavigationViewStyle())
-		.background(EmptyView()
-						.popover(isPresented: $showingSettings, attachmentAnchor: .point(.topTrailing), arrowEdge: .top) {
-							SongSettingsView(song: song)
-						})
+        .navigationViewStyle(StackNavigationViewStyle())
+//		.navigationBarItems(trailing:
+//								HStack(spacing: 15) {
+//									Button {                                    //MARK: Favorites
+//										if self.favorites.contains(song) {
+//											self.favorites.remove(song)
+//										} else {
+//											self.favorites.add(song)
+//										}
+//										} label: {
+//											self.favorites.contains(song) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+//										}
+//										.foregroundColor(.red)
+//
+//                                    Button {                                    //MARK: User note
+//                                        withAnimation(.default) {
+//                                            self.showingUserNoteField.toggle()
+//                                        }
+//                                    } label: {
+//                                        Image(systemName: showingUserNoteField ? "text.bubble.fill" : "text.bubble")
+//                                    }
+//
+//                                    Button {                                    //MARK: Settings
+//                                        self.showingSettings = true
+//                                    } label: {
+//                                        Image(systemName: "music.note.list")
+//                                    }
+//                                    .buttonStyle(PlainButtonStyle())
+//                                    .popover(isPresented: $showingSettings, attachmentAnchor: .point(.topTrailing), arrowEdge: .top) {
+//                                        SongSettingsView(song: song)
+//                                    }
+//								})
+        
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {                                            //MARK: Favorites
+                    if self.favorites.contains(song) {
+                        self.favorites.remove(song)
+                    } else {
+                        self.favorites.add(song)
+                    }
+                    } label: {
+                        self.favorites.contains(song) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+                    }
+                .foregroundColor(.red)
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {                                            //MARK: User note
+                        withAnimation(.default) {
+                            self.showingUserNoteField.toggle()
+                        }
+                    } label: {
+                        Image(systemName: showingUserNoteField ? "text.bubble.fill" : "text.bubble")
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {                                            //MARK: SongSettings
+                    self.showingSettings = true
+                } label: {
+                    Image(systemName: "music.note.list")
+                }
+            }
+        }
+        .background(EmptyView()
+                        .popover(isPresented: $showingSettings, attachmentAnchor: .point(.topTrailing), arrowEdge: .top) {
+                            SongSettingsView(showSettingsView: $showingSettings, song: song)
+                        } )
     }
 	
 	func obtainText(index: Int) -> some View {
@@ -135,7 +167,7 @@ struct SongView: View {
             return Text(song.lyrics[index][2..<song.lyrics[index].count])
                 .italic()
         } else {
-			return Text(song.lyrics[index])
+			return (Text(song.lyrics[index]))
 		}
 	}
 }

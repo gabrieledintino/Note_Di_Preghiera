@@ -11,7 +11,7 @@ import SwiftUI
 struct Canta_e_CamminaApp: App {
     let persistenceController = PersistenceController.shared
 	@ObservedObject var favorites = Favorites()
-	@ObservedObject var settings = Settings()
+	@ObservedObject var settings = SongSettings()
     @ObservedObject var recentlyPlayed = RecentlyPlayedSongs()
     @ObservedObject var playlists = Playlists()
     @ObservedObject var userNotes = UserNotes()

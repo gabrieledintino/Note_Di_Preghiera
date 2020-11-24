@@ -97,7 +97,7 @@ struct Chord: Codable, Hashable {
 		}
 	}
 	
-	private static func getDefaultChordIndex(prefix: String) -> Int {
+    private static func getDefaultChordIndex(prefix: String) -> Int {
         let chord = ChordBaseType(rawValue: prefix.uppercased())
 		switch chord {						//
 		case .DO:

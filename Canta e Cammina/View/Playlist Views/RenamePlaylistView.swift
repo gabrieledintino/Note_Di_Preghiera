@@ -14,23 +14,24 @@ struct RenamePlaylistView: View {
     @State var newName: String = ""
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button("Fatto", action: { renamePlaylist(); dismiss() })
+        NavigationView {
+            Form {
+                Section(header: Text("Scegli il nuovo nome della scaletta")) {
+                    TextField("Scegli il nuovo nome", text: $newName)
+                }
             }
-            Spacer()
-            Text("Scegli il nuovo nome della scaletta")
-                .font(.headline)
-            TextField("Scegli il nuovo nome", text: $newName)
-                .padding(7)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-            Spacer()
+            .navigationTitle("Rinomina scaletta")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Annulla", action: dismiss)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Salva", action: { renamePlaylist(); dismiss() })
+                }
+            }
         }
-        .padding()
+        .onAppear(perform: { self.newName = oldName })
     }
     
     func renamePlaylist() {

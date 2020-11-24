@@ -16,8 +16,6 @@ struct RecentlyPlayedView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                         ForEach(recentlyPlayed.getRecentlyPlayed(), id: \.self) { song in
                             NavigationLink(destination: SongView(song)) {
-//                                TileView(name: song.title, fontStyle: .title3)
-//                                    .frame(height: 60)
                                 GroupBox(
                                     label: Label("", systemImage: "music.note")
                                         .foregroundColor(.red)
@@ -50,7 +48,7 @@ struct CardGroupBoxStyle: GroupBoxStyle {
         }
         .padding()
         .frame(maxWidth: UIScreen.main.bounds.width)
-        .background(Color(.systemGroupedBackground))
+        .background(Color(.systemGray6))
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
 }

@@ -22,68 +22,60 @@ struct AddSongView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button("Fatto", action: dismiss)
-            }
-            SearchBar(text: $searchText)
-                .padding(.top, 10)
+        NavigationView {
+            VStack {
+                SearchBar(text: $searchText)
+                    .padding(.top, 10)
 
-            List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
-                VStack(alignment: .leading) {
-                    Text(song.title)
-                        .font(.headline)
-                }.layoutPriority(1)
-                
-                Spacer()
+                List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
+                    VStack(alignment: .leading) {
+                        Text(song.title)
+                            .font(.headline)
+                    }.layoutPriority(1)
+                    
+                    Spacer()
 
-                FavoriteHeart(song: song)
-                
-                if let index = songsToAdd.firstIndex(of: song) {
-//                    Image(systemName: "\(index + 1).circle")
-//                        .foregroundColor(.blue)
-                    Text("\(index + 1)")
-                        .foregroundColor(.blue)
-
+                    FavoriteHeart(song: song)
+                    
+                    if let index = songsToAdd.firstIndex(of: song) {
+                        Text("\(index + 1)")
+                            .foregroundColor(Color(.systemGray))
+                    }
+                    
+                    Button(action: {                                                    //MARK: button to add songs
+                            if songsToAdd.contains(song) {
+                                    songsToAdd.removeElement(element: song)
+                            } else {
+                                    songsToAdd.append(song)
+                            }
+                    }, label: {
+                        Image(systemName: songsToAdd.contains(song) ? "minus.circle.fill" : "plus.circle.fill")
+                            .animation(.default)
+                            .foregroundColor(songsToAdd.contains(song) ? Color.red : Color.green)
+                    })
+                    .buttonStyle(PlainButtonStyle())
                 }
-                
-                Button(action: {
-                        if songsToAdd.contains(song) {
-                                songsToAdd.removeElement(element: song)
-                        } else {
-                                songsToAdd.append(song)
-                        }
-                }, label: {
-                    Image(systemName: songsToAdd.contains(song) ? "minus.circle.fill" : "plus.circle.fill")
-                        .animation(.default)
-                        .foregroundColor(songsToAdd.contains(song) ? Color.red : Color.green)
-                })
-                .buttonStyle(PlainButtonStyle())
             }
-            Button(action: {
-                playlists.addToPlaylist(playlistName: playlistName, songs: songsToAdd)
-                self.presentationMode.wrappedValue.dismiss()
-            }, label: {
-                HStack {
-                    Text("Fatto")
-                        .padding(.horizontal)
-                    Image(systemName: "checkmark")
+            .navigationTitle("Aggiungi canzoni")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Annulla", action: dismiss)
                 }
-                .padding(10)
-            })
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(8)
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Fatto", action: addAndDismiss)
+                }
+            }
         }
-        .padding()
-//        .frame(maxWidth: .infinity)
 //        .background(VisualEffectView(effect: UIBlurEffect(style: .dark)))
-//        .edgesIgnoringSafeArea(.vertical)
     }
     
     func dismiss() {
         presentationMode.wrappedValue.dismiss()
+    }
+    func addAndDismiss() {
+        playlists.addToPlaylist(playlistName: playlistName, songs: songsToAdd)
+        dismiss()
     }
 }
     
@@ -96,5 +88,7 @@ struct VisualEffectView: UIViewRepresentable {
 struct AddSongView_Previews: PreviewProvider {
     static var previews: some View {
         AddSongView(playlistName: "Prova")
+            .environmentObject(Favorites())
+            .environmentObject(Playlists())
     }
 }

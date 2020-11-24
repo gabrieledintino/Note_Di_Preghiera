@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class Settings: ObservableObject, Codable {
+class SongSettings: ObservableObject, Codable {
 	// define a dictionary with song name and the offset of the chords
 	private var chordOffset: [String: Int]
 	
@@ -28,12 +28,6 @@ class Settings: ObservableObject, Codable {
 		chordOffset = [:]
 	}
 	
-//	// returns true if our dictionary contains this song
-//	func contains(_ song: Song) -> Bool {
-//		let index = chordOffset.index(forKey: song.title)
-//		return index != nil
-//	}
-	
 	// returns the offset associated with the song, or 0 if there is no offset
 	func getOffset(_ song: Song) -> Int {
 		if let offset = chordOffset[song.title] {
@@ -46,21 +40,17 @@ class Settings: ObservableObject, Codable {
 	}
 
 	// adds the resort to our set, updates all views, and saves the change
-	func modifyOffset(_ song: Song, offset: Int) {
+	func modifyOffset(_ song: Song, offset: Int) {                                  //FIXME: sistemare il save in modo che non venga sempre effettuato (SongSettingsView andrà sistemata)
 		objectWillChange.send()
 		chordOffset[song.title] = offset
-		save()
-	}
-//
-//	// removes the resort from our set, updates all views, and saves the change
-//	func remove(_ song: Song) {
-//		objectWillChange.send()
-//		songs.remove(song.title)
 //		save()
-//	}
+	}
+    
+    func saveOffset() {
+        save()
+    }
 	
-	
-	func save() {
+	private func save() {
 		let encoder = JSONEncoder()
 		if let encoded = try? encoder.encode(chordOffset) {
 			UserDefaults.standard.set(encoded, forKey: Self.saveKey)

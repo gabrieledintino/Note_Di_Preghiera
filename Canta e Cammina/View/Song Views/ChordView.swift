@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChordView: View {
 	@State private var isShowingNote = false
-	@EnvironmentObject var settings: Settings
+	@EnvironmentObject var settings: SongSettings
 	var chordString: String
 	var song: Song
 	

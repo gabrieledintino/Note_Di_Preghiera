@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -21,7 +22,6 @@ struct SettingsView: View {
             .navigationTitle("Impostazioni")
         }
         .navigationViewStyle(StackNavigationViewStyle())
-
     }
 }
 
