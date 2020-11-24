@@ -30,7 +30,7 @@ struct DetailChordView: View {
 			Text(chord.chordName)
 				.font(.largeTitle)
                 .foregroundColor(.accentColor)
-			Text("Qui andrà una descrizione")
+//			Text("Qui andrà una descrizione")
             Spacer()
 		}
         .padding()
