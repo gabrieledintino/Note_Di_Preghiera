@@ -199,11 +199,7 @@
 				465E634424F00BC700AF3933 /* HomeView.swift */,
 				465E634624F026D900AF3933 /* WelcomeView.swift */,
 				E0FD12AB2512061E0057654C /* ListView.swift */,
-				E057522F253658B000EEA5DF /* MainSongListView.swift */,
-				E080D792253747A400C13FFE /* RecentlyPlayedView.swift */,
-				E080D79725374CCF00C13FFE /* CategoriesView.swift */,
-				E080D79B25374CE800C13FFE /* PlaylistsView.swift */,
-				E080D79E25374D0400C13FFE /* SettingsView.swift */,
+				E0948A4A256E63170062BFF3 /* Tab Views */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +240,18 @@
 				E0CD3EDF25377A9D009454B9 /* PlaylistStruct.swift */,
 			);
 			path = Structs;
+			sourceTree = "<group>";
+		};
+		E0948A4A256E63170062BFF3 /* Tab Views */ = {
+			isa = PBXGroup;
+			children = (
+				E057522F253658B000EEA5DF /* MainSongListView.swift */,
+				E080D792253747A400C13FFE /* RecentlyPlayedView.swift */,
+				E080D79725374CCF00C13FFE /* CategoriesView.swift */,
+				E080D79B25374CE800C13FFE /* PlaylistsView.swift */,
+				E080D79E25374D0400C13FFE /* SettingsView.swift */,
+			);
+			path = "Tab Views";
 			sourceTree = "<group>";
 		};
 		E0CD3EB7253772C8009454B9 /* Canta e CamminaTests */ = {
