@@ -18,70 +18,79 @@ struct AddPlaylistView: View {
 
     
     var body: some View {
-        VStack {
-            TextField("Inserisci il nome della scaletta", text: $playlistName)
-                .padding(7)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-            
-            Divider()
-            
-            SearchBar(text: $searchText)
-                .padding(.top, 10)
-
-            List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
-                VStack(alignment: .leading) {
-                    Text(song.title)
-                        .font(.headline)
-                }.layoutPriority(1)
+        NavigationView {
+            VStack {
+                Text("Inserisci un nome per la tua nuova scaletta")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                TextField("Inserisci il nome della scaletta", text: $playlistName)
+                    .padding(7)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, 10)
                 
-                Spacer()
-
-                FavoriteHeart(song: song)
+                Divider()
                 
-                if let index = playlistContent.firstIndex(of: song) {
-                    Text("\(index + 1)")
-                        .foregroundColor(.blue)
+                SearchBar(text: $searchText)
+                    .padding(.top, 10)
+
+                List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
+                    VStack(alignment: .leading) {
+                        Text(song.title)
+                            .font(.headline)
+                    }.layoutPriority(1)
+                    
+                    Spacer()
+
+                    FavoriteHeart(song: song)
+                    
+                    if let index = playlistContent.firstIndex(of: song) {
+                        Text("\(index + 1)")
+                            .foregroundColor(Color(.systemGray))
+                    }
+                    
+                    Button(action: {
+                            if playlistContent.contains(song) {
+                                    playlistContent.removeElement(element: song)
+                            } else {
+                                    playlistContent.append(song)
+                            }
+                    }, label: {
+                        Image(systemName: playlistContent.contains(song) ? "minus.circle.fill" : "plus.circle.fill")
+                            .animation(.default)
+                            .foregroundColor(playlistContent.contains(song) ? Color.red : Color.green)
+                    })
+                    .buttonStyle(PlainButtonStyle())
                 }
-                
-                Button(action: {
-                        if playlistContent.contains(song) {
-                                playlistContent.removeElement(element: song)
-                        } else {
-                                playlistContent.append(song)
-                        }
-                }, label: {
-                    Image(systemName: playlistContent.contains(song) ? "minus.circle.fill" : "plus.circle.fill")
-                        .animation(.default)
-                        .foregroundColor(playlistContent.contains(song) ? Color.red : Color.green)
-                })
-                .buttonStyle(PlainButtonStyle())
             }
-            Button(action: {
-                playlists.createPlaylist(playlistName: playlistName, songs: playlistContent)
-                self.presentationMode.wrappedValue.dismiss()
-            }, label: {
-                HStack {
-                    Text("Fatto")
-                        .padding(.horizontal)
-                    Image(systemName: "checkmark")
+            .navigationTitle("\(playlistName)")
+            .navigationBarTitleDisplayMode(.automatic)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Annulla", action: dismiss)
                 }
-                .padding()
-            })
-            .foregroundColor(.white)
-            .background(playlistName == "" ? Color.gray : Color.blue)
-            .cornerRadius(8)
-            .disabled(playlistName == "")
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Fatto", action: addAndDismiss)
+                        .disabled(playlistName.isEmpty)
+                }
+            }
         }
-        .padding()
-        .navigationTitle("\(playlistName)")
+    }
+    
+    func dismiss() {
+        presentationMode.wrappedValue.dismiss()
+    }
+    func addAndDismiss() {
+        playlists.createPlaylist(playlistName: playlistName, songs: playlistContent)
+        dismiss()
     }
 }
 
 struct AddPlaylistView_Previews: PreviewProvider {
     static var previews: some View {
         AddPlaylistView()
+            .environmentObject(Favorites())
+            .environmentObject(Playlists())
     }
 }
