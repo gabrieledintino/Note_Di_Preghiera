@@ -17,8 +17,8 @@ struct SettingsView: View {
                         Link("Mail", destination: URL(string: "mailto:gabriele.dintino@icloud.com")!)
                             .buttonStyle(PlainButtonStyle())
                     }
-                    NavigationLink(destination: Link("Instagra,", destination: URL(string: "https://www.apple.com")!)) {
-                        Link("Instagram", destination: URL(string: "https://www.apple.com")!)
+                    NavigationLink(destination: Link("Instagram", destination: URL(string: "https://www.instagram.com/gabriele.dintino/")!)) {
+                        Link("Instagram", destination: URL(string: "https://www.instagram.com/gabriele.dintino/")!)
                             .buttonStyle(PlainButtonStyle())
                     }
                     Text("Per ogni problema, suggerimento, segnalazione di bug/crash e per proporre altri canti contattami utilizzando i social qui sopra!")

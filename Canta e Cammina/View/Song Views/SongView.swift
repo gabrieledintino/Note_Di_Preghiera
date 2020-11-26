@@ -74,6 +74,21 @@ struct SongView: View {
                                         .animation(.spring())
                                         .offset(x: 0, y: -4)
 								}
+                                Spacer(minLength: 10)
+                                
+                                if let youtubeLink = song.link {
+                                    HStack {
+                                        Image("YouTubeIcon")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        Link("Guarda su YouYube", destination: URL(string: youtubeLink)!)
+                                    }
+                                    .padding(.bottom, 10)
+                                }
+//                                if song.link != nil {
+//                                    Link("Guarda su YouYube", destination: URL(string: song.link!)!)
+//                                }
 							}
 							.padding(.horizontal)
 							
