@@ -50,20 +50,6 @@ struct SongView: View {
                                         }
                                 }
                                 
-                                if song.otherNotes != nil {
-									Text(song.otherNotes!)
-										.italic()
-										.padding(.vertical)
-								}
-								if song.intro != nil && !settings.chantMode {
-									HStack {
-										Text("Intro: ")
-											.italic()
-										ChordsView(chords: song.getNotes(string: song.intro!), song: song)
-									}
-									.padding(.bottom)
-								}
-                                
 								ForEach(0..<song.notes.count) { index in
                                     if !settings.chantMode {
                                         ChordsView(chords: chords[index], song: song)
@@ -82,13 +68,10 @@ struct SongView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        Link("Guarda su YouYube", destination: URL(string: youtubeLink)!)
+                                        Link("Guarda su YouTube", destination: URL(string: youtubeLink)!)
                                     }
                                     .padding(.bottom, 10)
                                 }
-//                                if song.link != nil {
-//                                    Link("Guarda su YouYube", destination: URL(string: song.link!)!)
-//                                }
 							}
 							.padding(.horizontal)
 							
@@ -167,7 +150,9 @@ struct SongView: View {
         .background(EmptyView()
                         .popover(isPresented: $showingSettings, attachmentAnchor: .point(.topTrailing), arrowEdge: .top) {
                             SongSettingsView(showSettingsView: $showingSettings, song: song)
-                        } )
+                        }
+        )
+
     }
 	
 	func obtainText(index: Int) -> some View {

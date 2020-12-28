@@ -41,10 +41,15 @@ struct MainSongListView: View {
             .navigationTitle("Canta e Cammina 2.0")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Filtra preferiti", action: { self.filterSongs.toggle() })
+                    Button("Filtra preferiti", action: { withAnimation(.default) {
+                        self.filterSongs.toggle()
+                    } })
                 }
             }
         }
+        .onAppear(perform: {
+            print(Song.allSongsOrdered.count)
+        })
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }

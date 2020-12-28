@@ -29,9 +29,9 @@ struct ChordView: View {
                     .animation(.spring())
 			}
 		}
-		.popover(isPresented: $isShowingNote, content: {
-			DetailChordView(chord: chord)
-		})
+        .popover(isPresented: $isShowingNote) {
+            DetailChordView(chord: chord)
+        }
     }
 }
 

@@ -43,6 +43,7 @@ struct ListView: View {
                 }
             }
         }
+        .navigationTitle(category)
     }
 }
 

@@ -10,11 +10,11 @@ import Foundation
 struct Song: Codable, Hashable {
     
 	let title: String
-	let intro: String?
+//	let intro: String?
 	let notesAndLyrics: [String]
 //    let notesAndLyrics: String
 	let categories: [String]
-	let otherNotes: String?
+//	let otherNotes: String?
     let link: String?
 	
     

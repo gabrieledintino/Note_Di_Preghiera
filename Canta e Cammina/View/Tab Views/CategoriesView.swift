@@ -22,8 +22,6 @@ struct CategoriesView: View {
                     LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
                         ForEach(Song.allCategories, id: \.self) { category in
                             NavigationLink(destination: ListView(songs: songs, category: category)) {
-//                                TileView(name: category)
-//                                    .frame(height: 60, alignment: .center)
                                 GroupBox(
                                     label: Label("", systemImage: "square.grid.3x3.topleft.fill")
                                         .foregroundColor(.red)
