@@ -62,7 +62,7 @@ struct SongView: View {
 								}
                                 Spacer(minLength: 10)
                                 
-                                if let youtubeLink = song.link {
+                                if let youtubeLink = song.youtubeLink {
                                     HStack {
                                         Image("YouTubeIcon")
                                             .resizable()
@@ -72,9 +72,18 @@ struct SongView: View {
                                     }
                                     .padding(.bottom, 10)
                                 }
+                                if let authorLink = song.authorLink {
+                                    HStack {
+                                        Image(systemName: "safari")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        Link("Vai al sito dell'autore", destination: URL(string: authorLink)!)
+                                    }
+                                    .padding(.bottom, 10)
+                                }
 							}
 							.padding(.horizontal)
-							
 							Spacer()
 						}
                     }.onAppear(perform: {

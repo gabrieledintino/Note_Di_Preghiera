@@ -22,6 +22,7 @@ struct ChordsView: View {
 
 struct ChordsView_Previews: PreviewProvider {
     static var previews: some View {
-		ChordsView(chords: ["SI", "   ", "LA", "DO"], song: Song.example)
+		ChordsView(chords: ["SI", "   ", "LA", " ", "DO"], song: Song.example)
+            .environmentObject(SongSettings())
     }
 }
