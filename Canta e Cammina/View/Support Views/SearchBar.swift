@@ -18,13 +18,14 @@ extension View {
  
 struct SearchBar: View {
 	@Binding var text: String
+    var textHint: String
  
 	@State private var isEditing = false
  
 	var body: some View {
 		HStack {
  
-			TextField("Cerca una canzone", text: $text)
+			TextField(textHint, text: $text)
 				.padding(7)
 				.padding(.horizontal, 25)
 				.background(Color(.systemGray6))
@@ -70,6 +71,6 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
 	static var previews: some View {
-		SearchBar(text: .constant(""))
+		SearchBar(text: .constant(""), textHint: "Cerca una canzone...")
 	}
 }

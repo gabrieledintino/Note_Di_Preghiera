@@ -31,21 +31,21 @@ struct HomeView: View {
                 
                 RecentlyPlayedView()
                     .tabItem {
-                        Image(systemName: "play.fill")
+                        Image(systemName: "clock")
                         Text("Recenti")
                     }
                     .tag("Recenti")
                 
                 CategoriesView()
                     .tabItem {
-                        Image(systemName: "list.dash")
+                        Image(systemName: "list.bullet")
                         Text("Categorie")
                     }
                     .tag("Categorie")
                 
                 PlaylistsView()
                     .tabItem {
-                        Image(systemName: "folder.fill")
+                        Image(systemName: "folder")
                         Text("Scalette")
                     }
                     .tag("Scaletta")

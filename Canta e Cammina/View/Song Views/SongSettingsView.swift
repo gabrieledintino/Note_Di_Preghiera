@@ -8,28 +8,29 @@
 import SwiftUI
 
 struct SongSettingsView: View {
-	@EnvironmentObject var settings: SongSettings
+	@EnvironmentObject var songSettings: SongSettings
     @Environment(\.presentationMode) var presentationMode
     @Binding var showSettingsView: Bool
     @State private var selectedOffset = 0
     @State private var originalOffset = 0
     var song: Song
-	var offsets = ["0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5"]
+	var offsetsString = ["0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5"]
     @State private var chantMode = false
     @State private var modified = false
+    @State private var firstDisappear = true
 	
     var body: some View {
 		let offset = Binding<Int>(
 			get: { self.selectedOffset },
 			set: {
 				self.selectedOffset = $0
-				self.settings.modifyOffset(song, offset: $0)
+				self.songSettings.modifyOffset(song, offset: $0)
 			})
         
         let bind = Binding<Bool>(
                   get:{self.chantMode},
                   set:{self.chantMode = $0
-                    self.settings.chantModeToggle()
+                    self.songSettings.chantModeToggle()
                   }
                 )
 		
@@ -40,12 +41,12 @@ struct SongSettingsView: View {
                         offset.wrappedValue = 0
                     } }
                     Picker(selection: offset, label: Text("Seleziona di quanto vuoi variare i toni")) {
-                        ForEach(0..<offsets.count) {
-                            Text(self.offsets[$0])
+                        ForEach(0..<offsetsString.count) {
+                            Text(self.offsetsString[$0])
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
-                    Text("Hai selezionato \(offsets[selectedOffset]) toni in più")
+                    Text("Hai selezionato \(offsetsString[selectedOffset]) toni in più")
                 }
 
                 Section(header: Text("Altre impostazioni")) {
@@ -54,7 +55,11 @@ struct SongSettingsView: View {
             }
             .onAppear(perform: { readOffset(song: song); readChantMode() })
             .onDisappear(perform: {
-                cancel()
+                if !firstDisappear {
+                    print("Scopacane")
+                    cancel()
+                }
+                self.firstDisappear = false
             })
             .navigationTitle("Impostazioni")
             .navigationBarTitleDisplayMode(.inline)
@@ -74,28 +79,28 @@ struct SongSettingsView: View {
     
 	
 	func readOffset(song: Song) {
-		self.selectedOffset = self.settings.getOffset(song)
-        self.originalOffset = self.settings.getOffset(song)
+		self.selectedOffset = self.songSettings.getOffset(song)
+        self.originalOffset = self.songSettings.getOffset(song)
 	}
     func readChantMode() {
-        self.chantMode = self.settings.getMode()
+        self.chantMode = self.songSettings.getMode()
     }
     func dismiss() {
 //        presentationMode.wrappedValue.dismiss()
         self.showSettingsView = false
     }
     func saveAndDismiss() {
-        modified = true
-        self.settings.saveOffset()
+        self.modified = true
+        self.songSettings.saveOffset()
         dismiss()
     }
     func cancel() {
         if !modified {
-            self.settings.modifyOffset(song, offset: originalOffset)
+            self.songSettings.modifyOffset(song, offset: originalOffset)
         }
     }
     func cancelAndDismiss() {
-        self.settings.modifyOffset(song, offset: originalOffset)
+        self.songSettings.modifyOffset(song, offset: originalOffset)
         dismiss()
     }
 }

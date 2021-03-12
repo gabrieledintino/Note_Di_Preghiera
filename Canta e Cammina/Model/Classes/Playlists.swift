@@ -32,12 +32,12 @@ class Playlists: ObservableObject {
     }
     
     func getPlaylistNames() -> [String] {
-        return playlists.map { $0.getName()}
+        return playlists.map { $0.name}
     }
     
     func getPlaylistSongs(playlistName: String) -> [Song] {
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
-            return playlist.getSongs()
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
+            return playlist.songs
         }
         return []
     }
@@ -51,14 +51,14 @@ class Playlists: ObservableObject {
     
     func addToPlaylist(playlistName: String, song: Song) {
         objectWillChange.send()
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
             playlist.addSong(song: song)
         }
         save()
     }
     func addToPlaylist(playlistName: String, songs: [Song]) {
         objectWillChange.send()
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
             playlist.addSongs(songs: songs)
         }
         save()
@@ -66,7 +66,7 @@ class Playlists: ObservableObject {
     
     func replaceSongsInPlaylist(playlistName: String, songs: [Song]) {
         objectWillChange.send()
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
             playlist.replaceSongs(songs: songs)
         }
         save()
@@ -74,14 +74,14 @@ class Playlists: ObservableObject {
     
     func removeFromPlaylist(playlistName: String, song: Song) {
         objectWillChange.send()
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
             playlist.deleteSong(song: song)
         }
         save()
     }
     func removeFromPlaylist(atOffsets offsets: IndexSet, playlistName: String) {
         objectWillChange.send()
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
             playlist.removeFromPlaylist(atOffsets: offsets)
         }
         save()
@@ -89,7 +89,7 @@ class Playlists: ObservableObject {
     
     func moveSongs(from source: IndexSet, to destination: Int, playlistName: String) {
         objectWillChange.send()
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
             playlist.moveSongs(from: source, to: destination)
         }
         save()
@@ -97,7 +97,7 @@ class Playlists: ObservableObject {
     
     func renamePlaylist(playlistName: String, newName: String) {
         objectWillChange.send()
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
             playlist.renamePlaylist(to: newName)
         }
         save()
@@ -106,14 +106,14 @@ class Playlists: ObservableObject {
     
     func deletePlaylist(playlistName: String) {
         objectWillChange.send()
-        if let deleteIndex = playlists.firstIndex(where: { $0.getName() == playlistName }) {
+        if let deleteIndex = playlists.firstIndex(where: { $0.name == playlistName }) {
             self.playlists.remove(at: deleteIndex)
         }
         save()
     }
     
     func contains(song: Song, playlistName: String) -> Bool {
-        if let playlist = playlists.first(where: { $0.getName() == playlistName }) {
+        if let playlist = playlists.first(where: { $0.name == playlistName }) {
             return playlist.contains(song: song)
         }
         return false

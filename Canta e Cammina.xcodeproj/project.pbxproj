@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4607E34B25F92D50008FCD2A /* chords2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4607E34A25F92D50008FCD2A /* chords2.json */; };
 		460C404424EF23BD003B7760 /* Canta_e_CamminaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C404324EF23BD003B7760 /* Canta_e_CamminaApp.swift */; };
 		460C404624EF23BD003B7760 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C404524EF23BD003B7760 /* ContentView.swift */; };
 		460C404824EF23BE003B7760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 460C404724EF23BE003B7760 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4607E34A25F92D50008FCD2A /* chords2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chords2.json; sourceTree = "<group>"; };
 		460C404024EF23BD003B7760 /* Canta e Cammina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canta e Cammina.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		460C404324EF23BD003B7760 /* Canta_e_CamminaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canta_e_CamminaApp.swift; sourceTree = "<group>"; };
 		460C404524EF23BD003B7760 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				465E634224F00AEA00AF3933 /* songs.json */,
 				E047DD1E25BDF8FF001A41C7 /* songs2.json */,
 				E0D8132525694E5A00F874CA /* chords.json */,
+				4607E34A25F92D50008FCD2A /* chords2.json */,
 			);
 			path = "JSON files";
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				465E634324F00AEA00AF3933 /* songs.json in Resources */,
+				4607E34B25F92D50008FCD2A /* chords2.json in Resources */,
 				460C404B24EF23BE003B7760 /* Preview Assets.xcassets in Resources */,
 				E047DD1F25BDF900001A41C7 /* songs2.json in Resources */,
 				460C404824EF23BE003B7760 /* Assets.xcassets in Resources */,
@@ -522,6 +526,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -576,6 +581,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

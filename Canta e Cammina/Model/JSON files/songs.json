@@ -58,8 +58,8 @@
 	{
 	  "title" : "Alleluia per ciò che fai",
 	  "categories" : [
-		"**Alleluia",
-		"per ciò che fai! (3 volte)"
+		"Pasqua",
+		"Finali"
 	  ],
 	  "notesAndLyrics" : [
 		"mi       mi4     mi                      mi4",
@@ -98,10 +98,11 @@
 		"**ci mostri la via, dai al mondo libertà.",
 		"    la  si             mi",
 		"**Alleluia, per ciò che fai!",
-		"    la  si             mi"
+		"    la  si             mi",
+		"**Alleluia, per ciò che fai! (3 volte)"
 	  ],
-	  "youtubeLink" : "Pasqua, Finali",
-	  "authorLink" : "https://www.youtube.com/watch?v=-6D6E9Sk_0c"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=-6D6E9Sk_0c",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Alleluia questa tua parola",
@@ -847,7 +848,7 @@
 	{
 	  "title" : "Salmo 8",
 	  "categories" : [
-		"gli animali della campagna."
+		"Salmi"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -878,10 +879,11 @@
 		"gli uccelli del cielo, i pesci del mare,",
 		"   do            mi-",
 		"le greggi, gli armenti,",
-		"       la-  si7      mi-"
+		"       la-  si7      mi-",
+		"gli animali della campagna."
 	  ],
-	  "youtubeLink" : "Salmi",
-	  "authorLink" : "https://www.youtube.com/watch?v=HKO1sZhBB7g"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=HKO1sZhBB7g",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Alleluia (Scaglianti)",
@@ -940,7 +942,7 @@
 	{
 	  "title" : "Giovane donna",
 	  "categories" : [
-		"**Ave      Mari---------ia"
+		"Canti a Maria"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -991,16 +993,17 @@
 		"",
 		"re fa#-    si-  sol  sol-  re ",
 		"**Ave      Mari---------ia",
-		"re fa#-    si-  sol  sol-  re "
+		"re fa#-    si-  sol  sol-  re ",
+		"**Ave      Mari---------ia"
 	  ],
-	  "youtubeLink" : "Canti a Maria",
-	  "authorLink" : "https://www.youtube.com/watch?v=v325wim3Ibo"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=v325wim3Ibo",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Ma voi chi dite che io sia?",
 	  "categories" : [
-		"nel silenzio del tuo cuore",
-		"il mio volto incontrerai."
+		"Comunione",
+		"Ingresso"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1043,10 +1046,11 @@
 		"nel perdono che puoi dare, anche quando non lo sai.",
 		" Fa#-              Si-         Sol       Re ",
 		"Soffrirò insieme a te e i tuoi dubbi accoglierò,",
-		"Sol                 Re           Mi-           La"
+		"Sol                 Re           Mi-           La",
+		"nel silenzio del tuo cuore, il mio volto incontrerai."
 	  ],
-	  "youtubeLink" : "Comunione, Ingresso",
-	  "authorLink" : "https://www.youtube.com/watch?v=On7drAyI8Gc"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=On7drAyI8Gc",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Nelle tue mani",
@@ -1283,7 +1287,7 @@
 	{
 	  "title" : "Tu sei",
 	  "categories" : [
-		"**Soffierà sulle vele e le gonfierà di Te."
+		"Comunione"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1330,10 +1334,11 @@
 		"**Soffierà sulle vele e le gonfierà di Te.",
 		"      fa        do          sol         la-",
 		"**Soffierà, soffierà il vento forte della vita,",
-		"      sol#      do       re-   sol   do "
+		"      sol#      do       re-   sol   do ",
+		"**Soffierà sulle vele e le gonfierà di Te."
 	  ],
-	  "youtubeLink" : "Comunione",
-	  "authorLink" : "https://www.youtube.com/watch?v=RbEjtKf3Yr8"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=RbEjtKf3Yr8",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "E se non fosse un sogno",
@@ -1417,7 +1422,7 @@
 	{
 	  "title" : "Alleluia (ed oggi ancora) ",
 	  "categories" : [
-		"della vita."
+		"Alleluia"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1440,15 +1445,16 @@
 		"ascolterò la tua Parola",
 		"       sib          sol-",
 		"che mi guida nel cammino",
-		"      la4  la"
+		"      la4  la",
+		"della vita."
 	  ],
-	  "youtubeLink" : "Alleluia",
-	  "authorLink" : "https://www.youtube.com/watch?v=HhazptLKtWU"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=HhazptLKtWU",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Io vedo la tua luce",
 	  "categories" : [
-		"tra la nostra indifferenza di ogni giorno."
+		"Ingresso"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1509,15 +1515,16 @@
 		"sei la vita che non muore, sei la via di un mondo nuovo.",
 		"re           la      re           la",
 		"E ti abbiamo visto stabilire la tua tenda",
-		"        re      la          re   la"
+		"        re      la          re   la",
+		"tra la nostra indifferenza di ogni giorno."
 	  ],
-	  "youtubeLink" : "Ingresso",
-	  "authorLink" : "https://www.youtube.com/watch?v=nHm93YxRQhQ"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=nHm93YxRQhQ",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "E sono solo un uomo",
 	  "categories" : [
-		"**che non si sente amato da nessuno. (2 volte)"
+		"Ingresso"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1580,15 +1587,16 @@
 		"**e avrò il coraggio di morire anch’io, ",
 		"    sol           la           re     si7",
 		"**e incontro a te verrò col mio fratello",
-		"    mi-        mi7         la7    re "
+		"    mi-        mi7         la7    re ",
+		"**che non si sente amato da nessuno. (2 volte)"
 	  ],
-	  "youtubeLink" : "Ingresso",
-	  "authorLink" : "https://www.youtube.com/watch?v=0aS7oE54jig"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=0aS7oE54jig",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Symbolum 77 ",
 	  "categories" : [
-		"noi saremo il seme di Dio"
+		"Comunione"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1647,15 +1655,16 @@
 		"Tu da mille strade ci raduni in unità",
 		"la-        re      sol           do",
 		"e per mille strade poi dove tu vorrai",
-		"la-         re        mi-"
+		"la-         re        mi-",
+		"noi saremo il seme di Dio"
 	  ],
-	  "youtubeLink" : "Comunione",
-	  "authorLink" : "https://www.youtube.com/watch?v=hGxG6AgpP5k"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=hGxG6AgpP5k",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Symbolum 80 ",
 	  "categories" : [
-		"**ma la tua parola mi rischiarerà."
+		"Comunione"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1754,15 +1763,18 @@
 		"**del tuo giorno, o Dio;",
 		"sol          re   mi-           si-",
 		"**luce in ogni cosa io non vedo ancora,",
-		"la-    re7   sol   mi-7   la la7    si"
+		"la-    re7   sol   mi-7   la la7    si",
+		"**ma la tua parola mi rischiarerà."
 	  ],
-	  "youtubeLink" : "Comunione",
-	  "authorLink" : "https://www.youtube.com/watch?v=DU--lbcd5BI"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=DU--lbcd5BI",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Se m'accogli",
 	  "categories" : [
-		"**con la mano nella tua camminerò."
+		"Ingresso",
+		"Finali",
+		"Offertorio"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1805,15 +1817,16 @@
 		"**e per sempre la tua strada  la mia strada resterà",
 		"        FA            DO          RE-    MI7",
 		"**nella gioia e nel dolore, fino a quando tu vorrai,",
-		"        LA-        SOL    FA DO"
+		"        LA-        SOL    FA DO",
+		"**con la mano nella tua camminerò."
 	  ],
-	  "youtubeLink" : "Ingresso, Finali, Offertorio",
-	  "authorLink" : "https://www.youtube.com/watch?v=KW4PfuB9Mlw"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=KW4PfuB9Mlw",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Vocazione",
 	  "categories" : [
-		"**nella vita all’incontro con te. "
+		"Ingresso"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1876,15 +1889,16 @@
 		"**fa’ che  ascoltando la tua voce",
 		"do   sol        fa           sol",
 		"**io ricordi dove porta la mia strada",
-		"do    sol        fa         do sol"
+		"do    sol        fa         do sol",
+		"**nella vita all’incontro con te. "
 	  ],
-	  "youtubeLink" : "Ingresso",
-	  "authorLink" : "https://www.youtube.com/watch?v=JODqaC2Mjmo"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=JODqaC2Mjmo",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Accoglimi",
 	  "categories" : [
-		"||la mia speranza si compirà. (2 volte)"
+		"Ingresso"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1907,16 +1921,16 @@
 		"secondo la tua Parola. (2 volte)",
 		"            Re6             Si-7 ",
 		"||Ed io lo so che in te, Signore,",
-		"          Sol     Mi-     Fa#    Re"
+		"          Sol     Mi-     Fa#    Re",
+		"||la mia speranza si compirà. (2 volte)"
 	  ],
-	  "youtubeLink" : "Ingresso",
-	  "authorLink" : "https://www.youtube.com/watch?v=OKz47txGnoM"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=OKz47txGnoM",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "E adesso siamo uno",
 	  "categories" : [
-		"il solo che fa uno",
-		"uno in te."
+		"Matrimonio"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -1957,10 +1971,11 @@
 		"il senso del tuo Amore",
 		"               mi- la         re",
 		"il solo che fa uno, uno in te ",
-		"               mi- la         re"
+		"               mi- la         re",
+		"il solo che fa uno, uno in te."
 	  ],
-	  "youtubeLink" : "Matrimonio",
-	  "authorLink" : "https://www.youtube.com/watch?v=CQapukgvBeA"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=CQapukgvBeA",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Grande è la tua bontà",
@@ -2075,7 +2090,7 @@
 	{
 	  "title" : "Gloria a Dio (Mariano)",
 	  "categories" : [
-		"**e pace in terra agli uomini che egli ama. (2 volte)"
+		"Gloria"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -2140,10 +2155,11 @@
 		"",
 		"re       la       sol      re",
 		"**Gloria a Dio nell’alto dei cieli",
-		"    si7-                do         sol la4  la"
+		"    si7-                do         sol la4  la",
+		"**e pace in terra agli uomini che egli ama. (2 volte)"
 	  ],
-	  "youtubeLink" : "Gloria",
-	  "authorLink" : "https://www.youtube.com/watch?v=KewJv-uYGLk"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=KewJv-uYGLk",
+	  "authorLink" : "https://www.luigimariano.com/"
 	},
 	{
 	  "title" : "Celebra il Re",
@@ -3839,7 +3855,7 @@
 	{
 	  "title" : "Rallegriamoci",
 	  "categories" : [
-		"perché è giunta in mezzo a noi la presenza di Dio"
+		"Festa"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -3888,10 +3904,11 @@
 		"con coraggio riceviamo la sua vita.",
 		"     si-    sol",
 		"Rallegriamoci,",
-		"     re        la                  re la sol"
+		"     re        la                  re la sol",
+		"perché è giunta in mezzo a noi la presenza di Dio"
 	  ],
-	  "youtubeLink" : "Festa",
-	  "authorLink" : "https://www.youtube.com/watch?v=qmL_UbGwdAQ"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=qmL_UbGwdAQ",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Alleluia e poi (Chiama ed io) ",
@@ -8034,7 +8051,8 @@
 	{
 	  "title" : "Salmo 127 (128)",
 	  "categories" : [
-		"sib    do                 fa"
+		"Salmi",
+		"Matrimonio"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -8128,15 +8146,18 @@
 		"       fa",
 		"**Così sarà benedetto l’uomo",
 		"do",
-		"**Che teme il Signore"
+		"**Che teme il Signore",
+		"sib    do                 fa",
+		"**Ti benedica il Signore da Sion"
 	  ],
-	  "youtubeLink" : "**Ti benedica il Signore da Sion",
-	  "authorLink" : "Salmi, Matrimonio"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=LpJgauiGLKA&t=39s",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Meraviglioso sei",
 	  "categories" : [
-		"||Io  non  desidero  che  te (4 volte) Rit.  "
+		"Adorazione",
+		"Comunione"
 	  ],
 	  "notesAndLyrics" : [
 		"",
@@ -8175,10 +8196,11 @@
 		"**Meraviglioso sei.  ",
 		"",
 		"",
-		"  La         Si           Mi  "
+		"  La         Si           Mi  ",
+		"||Io  non  desidero  che  te (4 volte) Rit.  "
 	  ],
-	  "youtubeLink" : "Adorazione, Comunione",
-	  "authorLink" : "https://www.youtube.com/watch?v=eBDQ_ovCqRg"
+	  "youtubeLink" : "https://www.youtube.com/watch?v=eBDQ_ovCqRg",
+	  "authorLink" : null
 	},
 	{
 	  "title" : "Alleluia (Lodate il Signore - Frisina) ",

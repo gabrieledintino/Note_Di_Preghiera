@@ -23,7 +23,7 @@ struct PlaylistView: View {
 
     var body: some View {
         VStack {
-            SearchBar(text: $searchText)
+            SearchBar(text: $searchText, textHint: "Cerca una canzone...")
             
             List {                                              //TODO: refactor this view (also in MainSongListView
                 ForEach(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in

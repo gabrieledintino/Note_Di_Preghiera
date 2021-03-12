@@ -16,18 +16,9 @@ class Playlist: Codable, Identifiable {
     }
     
     let id: UUID
-    private var name: String
-    private var songs: [Song]
+    private(set) var name: String
+    private(set) var songs: [Song]
     
-    
-    
-    func getName() -> String {
-        return self.name
-    }
-    
-    func getSongs() -> [Song] {
-        return self.songs
-    }
     
      func addSong(song: Song) {
         self.songs.append(song)

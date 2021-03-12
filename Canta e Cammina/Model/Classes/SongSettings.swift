@@ -39,7 +39,6 @@ class SongSettings: ObservableObject, Codable {
 		}
 	}
 
-	// adds the resort to our set, updates all views, and saves the change
 	func modifyOffset(_ song: Song, offset: Int) {                                  //FIXME: sistemare il save in modo che non venga sempre effettuato (SongSettingsView andrà sistemata)
 		objectWillChange.send()
 		chordOffset[song.title] = offset

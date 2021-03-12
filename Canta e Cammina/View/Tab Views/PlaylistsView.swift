@@ -12,6 +12,7 @@ struct PlaylistsView: View {
     @State private var showRenamePlaylist: Playlist? = nil
     @State private var showAddPlaylist = false
     @State private var showDeletePlaylist: Playlist? = nil
+    @State private var searchText = ""
 
     let songs = Song.allSongsOrdered
     
@@ -23,19 +24,20 @@ struct PlaylistsView: View {
     var body: some View {
         NavigationView {
             VStack {
+                SearchBar(text: $searchText, textHint: "Cerca una scaletta...")
+                    .padding(.vertical, 5)
+                
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
-                        ForEach(playlists.getPlaylists(), id: \.id) { playlist in
-                            NavigationLink(destination: PlaylistView(playlistName: playlist.getName())) {
-//                                TileView(name: playlist.getName())
-//                                    .frame(height: 60, alignment: .center)
+                        ForEach(playlistsFilter(), id: \.id) { playlist in
+                            NavigationLink(destination: PlaylistView(playlistName: playlist.name)) {
                                 GroupBox(
                                     label: Label("", systemImage: "folder")
                                             .foregroundColor(.red)
                                             .font(.callout)
                                             .padding(.bottom, 1)
                                 ) {
-                                    Text(playlist.getName())
+                                    Text(playlist.name)
                                         .font(.title3)
                                         .fontWeight(.bold)
                                 } .groupBoxStyle(CardGroupBoxStyle())
@@ -57,8 +59,8 @@ struct PlaylistsView: View {
                                         }
                             })
                             .actionSheet(item: $showDeletePlaylist) { playlist in
-                                ActionSheet(title: Text("Sei sicuro di voler eliminare la scaletta \"\(playlist.getName())\"?"), message: Text("Conferma"), buttons: [
-                                    .destructive(Text("Elimina"), action: { self.deletePlaylist(playlistName: playlist.getName()) }),
+                                ActionSheet(title: Text("Sei sicuro di voler eliminare la scaletta \"\(playlist.name)\"?"), message: Text("Conferma"), buttons: [
+                                    .destructive(Text("Elimina"), action: { self.deletePlaylist(playlistName: playlist.name) }),
                                     .cancel()
                                 ])
                             }
@@ -88,11 +90,15 @@ struct PlaylistsView: View {
             }
             .background(EmptyView()
                             .sheet(item: $showRenamePlaylist) { playlist in
-                                RenamePlaylistView(oldName: playlist.getName())
+                                RenamePlaylistView(oldName: playlist.name)
                             }
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    fileprivate func playlistsFilter() -> [Playlist] {
+        return playlists.getPlaylists().filter( { searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())})
     }
     
     func deletePlaylist(playlistName: String) {

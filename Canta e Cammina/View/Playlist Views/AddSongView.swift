@@ -24,7 +24,7 @@ struct AddSongView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $searchText)
+                SearchBar(text: $searchText, textHint: "Cerca una canzone...")
                     .padding(.top, 10)
 
                 List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in

@@ -23,12 +23,11 @@ struct MainSongListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $searchText)
+                SearchBar(text: $searchText, textHint: "Cerca una canzone...")
                     .padding(.vertical, 5)
 
-                
-                List(songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }), id: \.self) { song in
-                    NavigationLink(destination: SongView(song)) {               //TODO: refactor this view (also in MainSongListView
+                List(songFilter(), id: \.self) { song in
+                    NavigationLink(destination: SongView(song)) {                                   //TODO: refactor this view (also in MainSongListView
                         VStack(alignment: .leading) {
                             Text(song.title)
                                 .font(.headline)
@@ -51,6 +50,10 @@ struct MainSongListView: View {
             print(Song.allSongsOrdered.count)
         })
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    fileprivate func songFilter() -> [Song] {
+        return songs.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) })
     }
 }
 

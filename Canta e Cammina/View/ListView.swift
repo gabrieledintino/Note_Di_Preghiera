@@ -21,7 +21,7 @@ struct ListView: View {
     
     var body: some View {
         VStack {
-            SearchBar(text: $searchText)
+            SearchBar(text: $searchText, textHint: "Cerca una canzone...")
                 .padding()
                 
             
